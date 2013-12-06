@@ -1,0 +1,41 @@
+.gb { background-color: #f7f7f7; }
+
+html, body { height: 100% !important; }
+body { font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif; color: #333; }
+a { color: #333333; text-decoration: none; opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out;}
+a:hover { color: #333333; opacity: 1; }
+
+div { position: relative; }
+.hris-fill { min-height: 100%; height: 100%; }
+
+.icons, .hris-widget-button-icon {position:absolute;top:9px;right:0;margin-top:-10px;}
+.hris-widget-button-icon {top:8px;right:0;margin-top:-10px; }
+.icons { display: none; }
+.icons .icon, .hris-widget-button-icon .icon {position:relative;top:0;left:0;display:inline-block;opacity:.5;-webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
+.icons .icon:hover, .hris-widget-button-icon .icon:hover {opacity:1;}
+.hris-icon-fw { margin-right: 0.5em; }
+
+/* =HRIS Widgets */
+.hris-widget-container { border-right: 1px solid rgba(0, 0, 0, 0.1); padding-top: 15px; }
+.hris-widget-masthead { margin: 0 15px; }
+.hris-widget-masthead .hris-widget-title { font-size: 1.2em; margin: 0; padding:0; }
+.hris-widget-masthead .hris-widget-meta { color: #777777; margin: 15px 0; }
+.hris-widget-masthead .hris-widget-meta-desc { font-size: 0.75em; }
+
+.hris-widget-inner { overflow: scroll; min-height: 400px; }
+
+.hris-nav-list { }
+.hris-nav-list li { position: relative; display: block; padding: 0.75em 15px; cursor:pointer; margin: 0; }
+.hris-nav-list li .hris-nav-list-item { opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
+.hris-nav-list li .hris-nav-list-item:hover { opacity: 1; }
+.hris-nav-list-item:hover .icons { display: block; }
+
+.hris-widget-nav-sub { position: absolute; bottom: 0; left: 0; width: 100%; }
+.hris-toggle, .hris-modal { display: block; padding: 15px 0; margin: 0; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; width: 100%; }
+
+.hris-active { background-color: rgba(255, 255, 255, 0.65) !important; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+.hris-active .hris-nav-list-item, .hris-active .hris-item-icon i { font-weight: bold; color: #333333; opacity: 1 !important; }
+.hris-active-object { }
+
+/* =HRIS Object Widget */
+#hris-object-widget { padding-bottom: 120px; }

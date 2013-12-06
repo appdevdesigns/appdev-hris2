@@ -1,8 +1,11 @@
 steal(
         // List your Page's dependencies here:
         'appdev/appdev.js'
+		, 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'
         , 'bootstrap/css/bootstrap.min.css'
         , 'pages/hris/hris.css'
+		, 'pages/hris/hris-scratch.css'
+
 ).then(
         "appdev/widgets/ad_list_crud",
 		"HrisUI/setup.js"
