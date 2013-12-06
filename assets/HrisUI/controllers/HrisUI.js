@@ -1,7 +1,8 @@
 
 steal(
         // List your Controller's dependencies here:
-        'appdev',
+        'appdev'
+		, 'HrisUI/hris-initialize.js',
 //        'HrisUI/models/Projects.js',
 //        'appdev/widgets/ad_delete_ios/ad_delete_ios.js',
 //        'HrisUI/views/HrisUI/HrisUI.ejs',
