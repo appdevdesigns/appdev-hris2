@@ -1,8 +1,14 @@
 steal(
         // List your Page's dependencies here:
         'appdev/appdev.js'
+		, 'http://cdn.wijmo.com/themes/aristo/jquery-wijmo.css'
+		, 'http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20133.20.min.css'
+		, 'http://cdn.wijmo.com/jquery.wijmo-open.all.3.20133.20.min.js'
+		, 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'
         , 'bootstrap/css/bootstrap.min.css'
         , 'pages/hris/hris.css'
+		, 'pages/hris/hris-scratch.css'
+
 ).then(
         "appdev/widgets/ad_list_crud",
 		"HrisUI/setup.js"

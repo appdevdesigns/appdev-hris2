@@ -22,6 +22,8 @@ function(){
 
             this.initDOM();
 
+			new AD.controllers.ObjectList(this.element.find('.hris-object-widget'), {});
+
         },
 
 
