@@ -5,7 +5,8 @@ steal(
 ).then(
 		"HrisUI/controllers/HrisUI.js",
 		"HrisUI/controllers/ObjectList.js",
-		"HrisUI/controllers/SetList.js"
+		"HrisUI/controllers/SetList.js",
+		"HrisUI/controllers/AttrList.js"
 		
 ).then(function(){
 
