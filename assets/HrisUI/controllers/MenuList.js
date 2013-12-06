@@ -4,28 +4,23 @@ steal(
         'appdev',
 //        'HrisUI/models/Projects.js',
 //        'appdev/widgets/ad_delete_ios/ad_delete_ios.js',
-//        'HrisUI/views/HrisUI/HrisUI.ejs',
+//        'HrisUI/views/ObjectList/ObjectList.ejs',
 function(){
 
 
 
-    AD.controllers.HrisUI = can.Control.extend({
+    AD.controllers.MenuList = can.Control.extend({
 
 
         init: function( element, options ) {
             var self = this;
             this.options = AD.defaults({
-                    templateDOM: 'HrisUI/views/HrisUI/HrisUI.ejs',
+                    templateDOM: 'HrisUI/views/MenuList/MenuList.ejs',
             }, options);
 
             this.dataSource = this.options.dataSource; // AD.models.Projects;
 
             this.initDOM();
-
-			new AD.controllers.MenuList(this.element.find('.hris-menu-widget'), {});
-			new AD.controllers.ObjectList(this.element.find('.hris-object-widget'), {});
-			new AD.controllers.SetList(this.element.find('.hris-set-widget'), {});
-			new AD.controllers.AttrList(this.element.find('.hris-attr-widget'), {});
 
         },
 
