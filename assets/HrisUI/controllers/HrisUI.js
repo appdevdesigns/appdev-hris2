@@ -1,8 +1,7 @@
 
 steal(
         // List your Controller's dependencies here:
-        'appdev'
-		, 'HrisUI/hris-initialize.js',
+        'appdev',
 //        'HrisUI/models/Projects.js',
 //        'appdev/widgets/ad_delete_ios/ad_delete_ios.js',
 //        'HrisUI/views/HrisUI/HrisUI.ejs',
@@ -24,6 +23,7 @@ function(){
             this.initDOM();
 
 			new AD.controllers.ObjectList(this.element.find('.hris-object-widget'), {});
+			new AD.controllers.SetList(this.element.find('.hris-set-widget'), {});
 
         },
 

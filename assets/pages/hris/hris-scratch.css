@@ -13,16 +13,17 @@ div { position: relative; }
 .icons { display: none; }
 .icons .icon, .hris-widget-button-icon .icon {position:relative;top:0;left:0;display:inline-block;opacity:.5;-webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
 .icons .icon:hover, .hris-widget-button-icon .icon:hover {opacity:1;}
-.hris-icon-fw { margin-right: 0.5em; }
+.hris-icon-fw { margin-right: 0.5em; font-size: 1.5rem; }
 
 /* =HRIS Widgets */
-.hris-widget-container { border-right: 1px solid rgba(0, 0, 0, 0.1); padding-top: 15px; }
+.hris-widget-container { border-right: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-top: 15px; }
 .hris-widget-masthead { margin: 0 15px; }
 .hris-widget-masthead .hris-widget-title { font-size: 1.2em; margin: 0; padding:0; }
 .hris-widget-masthead .hris-widget-meta { color: #777777; margin: 15px 0; }
 .hris-widget-masthead .hris-widget-meta-desc { font-size: 0.75em; }
 
-.hris-widget-inner { overflow: scroll; min-height: 400px; }
+.hris-widget-inner { overflow: scroll; height: 500px; }
+.hris-widget-inner-set { height: 310px; }
 
 .hris-nav-list { }
 .hris-nav-list li { position: relative; display: block; padding: 0.75em 15px; cursor:pointer; margin: 0; }
@@ -36,6 +37,12 @@ div { position: relative; }
 .hris-active { background-color: rgba(255, 255, 255, 0.65) !important; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 .hris-active .hris-nav-list-item, .hris-active .hris-item-icon i { font-weight: bold; color: #333333; opacity: 1 !important; }
 .hris-active-object { }
+.hris-active-sub .icons { display: block; }
+.hris-active-sub .hris-nav-list-item, .hris-active-sub .hris-item-icon i { font-weight: bold; color: #333333; opacity: 1 !important; }
 
 /* =HRIS Object Widget */
+.hris-object-widget { padding-right: 0; }
 #hris-object-widget { padding-bottom: 120px; }
+
+/* =HRIS Set Widget */
+.hris-set-attr-widget { padding: 0; }
