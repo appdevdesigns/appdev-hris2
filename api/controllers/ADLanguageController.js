@@ -25,24 +25,17 @@ module.exports = {
    */
    labelConfigFile: function (req, res) {
 
-console.log(sails);
-console.log(sails.controllers);
-
        var context = req.param('context');
 
 //// TODO: pull user's default language from their session and save to template:
        var currLangCode = 'en';  // req.session.languageCode || req.session.preferences.defaultLanguage;
 
-//// TODO: pull the query logic out into a service that we can test easily.
-////       the controller is just for calling the service with it's parameters and then
-////       sending back the results to the client
+       ADCore.labelsForContext(context, currLangCode, function(data) {
 
-       SiteMultilingualLabel.find({label_context:context, language_code:currLangCode})
-       .then(function(data){
+           // successful operation:
 
            // prepare proper content type headers
            res.setHeader('content-type', 'application/javascript');
-
 
            // render this view with data
            return res.view({
@@ -50,11 +43,14 @@ console.log(sails.controllers);
                labels: data,
                layout:false
            });
-       })
-       .fail(function(err){
+
+       }, function(err) {
+
+           // error handler
            console.log(err);
            res.error(err);
-       })
+       });
+
 
   },
 

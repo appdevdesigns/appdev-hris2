@@ -11,6 +11,77 @@ var sailsInstances = 0;
 
 module.exports= {
 
+
+        testingDBInit: function(options, done) {
+            var dfd = $.Deferred();
+
+            var self = this;
+            var sails = null;
+
+            var sailsLoaded = this.sails(function(err, _sails) {
+                if (err || !_sails) {
+                    if (done) done(err | "sails could not be started!");
+                    dfd.reject(err);
+
+                } else {
+                    sails = _sails;
+
+                    // make sure all our models are in 'testing' mode
+                     var models = [];
+                     options.models = options.models || [];
+                     for (var i=0; i<options.models.length; i++) {
+                         if (GLOBAL[options.models[i]]) {
+                             models.push( GLOBAL[options.models[i]] );
+                         }
+                     }
+
+                     self.verifyTestingEnvironment(sails, models, function(err) {
+
+                         if (err) {
+                             if (done) done(err);
+                             dfd.reject(err);
+                         } else {
+
+                             var countLoaded = 0;
+
+                             var loadData = function( filePath) {
+                                 var cwd = process.cwd();
+                                 var fp = path.join(cwd, filePath);
+                                 // ok, so setup our data to known values.
+console.log('cwd():'+cwd);
+console.log('filePath:'+filePath);
+console.log('combined:'+fp);
+                                 var initialData = require(fp);
+                                 var setup = self.dbSetup(initialData);
+                                 $.when(setup).then(function(data) {
+
+                                     countLoaded++;
+                                     if (countLoaded >= dataPaths.length){
+                                         // all dataPaths loaded so
+                                         // get started with the tests
+                                         if (done) done(null, sails);
+                                         dfd.resolve(sails);
+                                     }
+
+                                 })
+                                 .fail(function(err){
+                                     if (done) done(err);
+                                     dfd.reject(err);
+                                 })
+                             }
+                             var dataPaths = options.dataPaths || [];
+                             for (var f=0; f<dataPaths.length; f++) {
+                                 loadData(dataPaths[f]);
+                             }
+
+                         }
+                     })
+                }
+            });
+
+            return dfd;
+        },
+
         verifyTestingEnvironment: function(sails, models, done) {
 
             if (typeof done == 'undefined') {
