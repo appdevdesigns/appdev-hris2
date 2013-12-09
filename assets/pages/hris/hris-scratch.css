@@ -7,7 +7,10 @@ a:hover { color: #333333; opacity: 1; }
 
 div { position: relative; }
 
+.row { overflow: hidden; }
+
 /* =HRIS App */
+.hris-control-column { overflow: hidden; position: relative; }
 .hris-container-masthead { background-color: #f0f0f0; }
 .hris-menu-trigger, .hris-menu-trigger icon i { color: #333; opacity: 1 !important; }
 .hris-menu-trigger:hover { color: #333; text-decoration: none; }
@@ -51,12 +54,13 @@ div { position: relative; }
 .hris-active-menu .hris-nav-list-item, .hris-active-menu .hris-item-icon i { color: #fff; }
 
 /* =HRIS Menu Widget */
-.hris-menu-widget { padding-right: 0; }
+/*.hris-menu-widget { padding-left: 15px; padding-right: 0; float: left; position: absolute; top: 0; left: -150px; width: 150px; overflow: hidden; }*/
+.hris-menu-widget { padding-left: 15px; padding-right: 0; position: absolute; top: 0; left: -150px; width: 150px; }
 #hris-menu-widget { background-color: #444; }
 #hris-menu-widget ul li { color: #fff; }
 
 /* =HRIS Object Widget */
-.hris-object-widget { /*padding-left: 0;*/ padding-right: 0; }
+.hris-object-widget { padding-left: 0; padding-right: 0; overflow: hidden; position: relative; top: 0; left: 0; }
 #hris-object-widget { padding-bottom: 120px; }
 
 /* =HRIS Set Widget */
@@ -65,3 +69,6 @@ div { position: relative; }
 
 /* =HRIS Attribute Widget */
 #hris-attr-widget { border-top: 1px solid rgba(0, 0, 0, 0.1); background-color: #f6f6f6; }
+
+
+
