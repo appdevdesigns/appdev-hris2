@@ -16,14 +16,17 @@ function(){
             var self = this;
             this.options = AD.defaults({
                     dom_listarea:'.genlist-list',
+                    notification_selected:null,
                     templateDOM: 'js/GenListDOM.ejs',
-                    templateItem: 'js/GenListItem.ejs'
+                    templateItem: 'js/GenListItem.ejs',
+                    title: 'List',
+                    description:null
             }, options);
 
             this.dataSource = this.options.dataSource; // AD.models.Projects;
 
             this.initDOM();
-
+            this.loadItems();
 
 
         },
@@ -31,14 +34,27 @@ function(){
 
 
         clearItemList: function() {
-            this.element.find(this.options.dom_listarea).each(function(item){ item.remove(); });
+            var items = this.element.find(this.options.dom_listarea);
+            items.children().each(function(index, item){
+                item.remove();
+                });
+        },
+
+
+
+        data:function(dataList) {
+            this.dataSource = dataList;
+            this.loadItems();
         },
 
 
 
         initDOM: function() {
 
-            this.element.html(can.view(this.options.templateDOM, {} ));
+            this.element.html(can.view(this.options.templateDOM, {
+                title: this.options.title,
+                description: this.options.description
+            } ));
 
         },
 
@@ -53,6 +69,9 @@ function(){
 
             var domFrag = can.view(this.options.templateItem, { item: item });
             listArea[0].appendChild(domFrag);
+
+            var itemLI = listArea.find('[gen-list-del-id='+item.getID()+']');
+            itemLI.data('ad-model', item);
 
             //// now on each model displayed, listen to it's destroyed event
             // when destroyed, .remove() this domFrag.
@@ -79,16 +98,31 @@ function(){
 
             this.clearItemList();
 
-            for (var i=0; i<this.dataSource.length; i++) {
-                this.loadItem(this.dataSource[i], listArea);
+            if (this.dataSource) {
+                for (var i=0; i<this.dataSource.length; i++) {
+                    this.loadItem(this.dataSource[i], listArea);
+                }
             }
         },
 
 
 
-        '.genlist-item click': function($el, ev) {
+        'li.genlist-item click': function($el, ev) {
+
+            //  hris-active hris-active-object
+            this.element.find('.hris-active').each(function(index, item) {
+                $(item).removeClass('hris-active hris-active-object');
+            })
+
+            // add the selected class to this li
+            $el.addClass('hris-active');
+            $el.addClass('hris-active-object');
 
             // send a message
+            if (this.options.notification_selected) {
+                var model = $el.data('ad-model');
+                AD.comm.hub.publish(this.options.notification_selected, { model: model });
+            }
 
             ev.preventDefault();
         },
