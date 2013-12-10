@@ -2,9 +2,8 @@
 steal(
         // List your Controller's dependencies here:
         'appdev',
-//        'HrisUI/models/Projects.js',
-//        'appdev/widgets/ad_delete_ios/ad_delete_ios.js',
-//        'HrisUI/views/ObjectList/ObjectList.ejs',
+        'js/GenericList.js',
+        'HrisUI/models/APIAttributeSet.js',
 function(){
 
 
@@ -22,6 +21,26 @@ function(){
 
             this.initDOM();
 
+
+
+            // AD.comm.hub.publish(this.options.notification_selected, { model: model });
+            AD.comm.hub.subscribe('hris.object.selected', function(key, data) {
+
+                var object = data.model;
+
+                // an object was selected, so request a list of AttributeSets
+                // for that object:
+
+                var dataFound = AD.models.APIAttributeSet.findAll({object_id:object.getID()});
+                $.when(dataFound).then(function(list) {
+
+                    // save the data and now reload our list.
+                    self.dataSource = list;
+                    self.list.data(list);
+
+                })
+            })
+
         },
 
 
@@ -30,6 +49,14 @@ function(){
 
             this.element.html(can.view(this.options.templateDOM, {} ));
 
+         // add in the GenericList to our object list div
+            this.list = new AD.controllers.GenericList(this.element.find('.hris-list-attributeset'), {
+                title:'Attribute Sets',
+                description: '<em>Attribute Sets</em> belong to <em>Objects</em> and contain categorized attributes belonging to an object.',
+//                dataSource:[],  //this.dataSource,
+                templateItem:'HrisUI/views/SetList/item.ejs',
+                notification_selected:'hris.attributeset.selected'
+            });
         },
 
 
