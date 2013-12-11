@@ -10,14 +10,15 @@ var sails = null;
 
 
 var assert = require('chai').assert;
-describe('test api/models/SiteMultilingualLabel.js :', function () {
+describe('test api/controllers/ADLanguageController.js :', function () {
 
     before(function(done){
+
         this.timeout(10000);
 
         var initDone = ADUtil.testingDBInit({
-            models:[ 'SiteMultilingualLabel'],
-            dataPaths:['test/helpers/data_reset_labels.js']
+            models:[],
+            dataPaths:[]
         });
         $.when(initDone).then(function(data){
             sails = data;
@@ -26,22 +27,16 @@ describe('test api/models/SiteMultilingualLabel.js :', function () {
         .fail(function(err){
             done(err);
         })
-
-
-
     });
 
 
 
-    describe('Labels  ', function() {
+    describe(' Controller is properly setup  ', function() {
 
         // Our Model exists
-        it(' Our Model exists ', function() {
+        it(' -> Our Controller is loaded ', function() {
 
-            //// NOTE: truth is, this will fail in the before() method above
-            ////       before we even get here.
-
-            assert.isDefined(SiteMultilingualLabel,  ' yep, our model was found and read in.')
+            assert.isDefined( sails.controllers.adlanguage,  ' => sails found our ADLanguageController')
 
         });
 

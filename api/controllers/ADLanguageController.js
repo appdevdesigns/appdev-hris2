@@ -30,25 +30,27 @@ module.exports = {
 //// TODO: pull user's default language from their session and save to template:
        var currLangCode = 'en';  // req.session.languageCode || req.session.preferences.defaultLanguage;
 
-       ADCore.labelsForContext(context, currLangCode, function(data) {
+       ADCore.labelsForContext(context, currLangCode, function(err, data) {
 
-           // successful operation:
+           if (err) {
 
-           // prepare proper content type headers
-           res.setHeader('content-type', 'application/javascript');
+               // error handler
+               console.log(err);
+               res.error(err);
 
-           // render this view with data
-           return res.view({
-               langCode:currLangCode,
-               labels: data,
-               layout:false
-           });
+           } else {
 
-       }, function(err) {
+               // prepare proper content type headers
+               res.setHeader('content-type', 'application/javascript');
 
-           // error handler
-           console.log(err);
-           res.error(err);
+               // render this view with data
+               return res.view({
+                   langCode:currLangCode,
+                   labels: data,
+                   layout:false
+               });
+           }
+
        });
 
 

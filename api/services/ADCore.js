@@ -1,24 +1,57 @@
 /**
- * isAuthenticated
+ * ADCore
  *
- * @module      :: Policy
- * @description :: Simple policy to allow any authenticated user
- *                 Assumes that your login action in one of your controllers sets `req.session.authenticated = true;`
- * @docs        :: http://sailsjs.org/#!documentation/policies
+ * @module      :: Service
+ * @description :: This is a collection of core appdev features for an application.
+
  *
  */
+var $ = require('jquery');
+
 module.exports = {
 
-        labelsForContext: function(context, code, success, error) {
+        labelsForContext: function(context, code, cb) {
+            var dfd = $.Deferred();
 
-            SiteMultilingualLabel.find({label_context:context, language_code:code})
+            // verify cb is properly set
+            if (typeof code == 'function') {
+                if (typeof cb == 'undefined') {
+                    cb = code;
+                    code = 'en';    // <-- this should come from site Default
+                }
+            }
+
+
+            // options is the filter for our SiteMultilingualLabel.find()
+            // make sure something is set for context
+            var options = {
+                label_context: context || ''
+            };
+
+
+            // optionally set code if provided
+            if (code) {
+                options.language_code = code;
+            }
+
+
+            SiteMultilingualLabel.find(options)
             .then(function(data){
 
-                success(data);
+                if (cb) cb(null, data);
+                dfd.resolve(data);
+
             })
             .fail(function(err){
 
-                error(err);
-            })
+                if (cb) cb(err);
+                dfd.reject(err);
+            });
+
+            return dfd;
         }
 };
+
+
+//// LEFT OFF:
+//// - figure out unit tests for testing the controller output.
