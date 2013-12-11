@@ -1,0 +1,3 @@
+[submodule "assets/appdev"]
+        path = assets/appdev
+        url = git://github.com/appdevdesigns/appdev-client.git

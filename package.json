@@ -13,8 +13,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js",
-    "postinstall": "git clone https://github.com/appdevdesigns/appdev-client.git assets/appdev/"
+    "debug": "node debug app.js"
   },
   "main": "app.js",
   "repository": "",
