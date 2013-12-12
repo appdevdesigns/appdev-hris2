@@ -7,151 +7,11 @@ var SailsHelper = require('./sails_helper.js'); // helps us load sails
 var sails = null;       // local copy of sails instance
 var sailsInstances = 0; // number of sails instances reqeusted
 
-
+var assert = require('chai').assert;
 
 module.exports= {
 
-
-
-    testingDBInit: function(options, done) {
-        // load SailsJS
-        // verify given models are all in testing mode
-        // initialize DB's to expected values
-
-        var dfd = $.Deferred();
-
-        var self = this;
-        var sails = null;
-
-        var sailsLoaded = this.sails(function(err, _sails) {
-
-            if (err || !_sails) {
-                if (done) done(err | "sails could not be started!");
-                dfd.reject(err);
-
-            } else {
-                sails = _sails;
-
-                // make sure all our models are in 'testing' mode
-                 var models = [];
-                 options.models = options.models || [];
-                 for (var i=0; i<options.models.length; i++) {
-                     if (GLOBAL[options.models[i]]) {
-                         models.push( GLOBAL[options.models[i]] );
-                     }
-                 }
-
-                 self.verifyTestingEnvironment(sails, models, function(err) {
-
-                     if (err) {
-                         if (done) done(err);
-                         dfd.reject(err);
-                     } else {
-
-                         var countLoaded = 0;
-
-                         function loadData(filePath) {
-                             var cwd = process.cwd();
-                             var fp = path.join(cwd, filePath);
-
-                             // ok, so setup our data to known values.
-//console.log('cwd():'+cwd);
-//console.log('filePath:'+filePath);
-//console.log('combined:'+fp);
-                             var initialData = require(fp);
-                             var setup = self.dbSetup(initialData);
-                             $.when(setup).then(function(data) {
-
-                                 countLoaded++;
-                                 if (countLoaded >= dataPaths.length){
-                                     // all dataPaths loaded so
-                                     // get started with the tests
-                                     if (done) done(null, sails);
-                                     dfd.resolve(sails);
-                                 }
-
-                             })
-                             .fail(function(err){
-                                 if (done) done(err);
-                                 dfd.reject(err);
-                             })
-                         }
-                         var dataPaths = options.dataPaths || [];
-                         for (var f=0; f<dataPaths.length; f++) {
-                             loadData(dataPaths[f]);
-                         }
-
-
-                         if (dataPaths.length == 0){
-                             if (done) done(null, sails);
-                             dfd.resolve(sails);
-                         }
-
-                     }
-                 })
-            }
-        });
-
-        return dfd;
-    },
-
-
-
-    verifyTestingEnvironment: function(sails, models, done) {
-
-        if (typeof done == 'undefined') {
-            done = models;
-            models = [];
-        }
-
-        // check process.env.NODE_ENV
-        if (process.env.NODE_ENV != 'test') done('not testing environment: process.env.NODE_ENV="'+process.env.NODE_ENV+'"')
-//            console.log('process.env.NODE_ENV:['+process.env.NODE_ENV+']');
-
-        // check ../config/local.js  .environment == 'development' || 'testing'
-        if (sails.config.environment == 'production') done('not testing environment: sails.config.environment="'+sails.config.environment+'"');
-
-        // foreach model provided,
-        for (var m=0; m<models.length; m++) {
-            if (models[m].adapter.config.database.indexOf('live_') != -1) {
-                return(done('model ['+models[m].identity+'] tied to a live database:'+models[m].adapter.config.database))
-            }
-        }
-        // check to make sure their database != 'live_*'
-
-        // if we get here, then I think all the checks pass.
-        done();
-    },
-
-
-
-    sails: function(cb) {
-        var dfd = $.Deferred();
-
-        if (sails) {
-            sailsInstances++;
-            if (cb)  cb(null, sails);
-            dfd.resolve(sails);
-        } else {
-            SailsHelper.build(function(err, _sails){
-                if (err || !_sails) {
-                    if (cb) cb(err||'sails could not be created!');
-                    dfd.reject(err || 'sails could not be created');
-                } else {
-                    sails = _sails;
-                    sailsInstances++;
-                    if (cb) cb(null, sails);
-                    dfd.resolve(sails);
-                }
-
-            })
-        }
-
-        return dfd;
-    },
-
-
-
+     // setup db tables according to their descriptions in tableData
     dbSetup: function(tableData, done) {
         var dfd = $.Deferred();
         var countTables = 0;
@@ -217,7 +77,6 @@ module.exports= {
 
                                 }); // end model.query()
 
-
                             }) // end model.destroy().then()
                             .fail(function(err){
                                 dfd.reject(err);
@@ -259,7 +118,212 @@ module.exports= {
         processTables(tableData);
 
         return dfd;
-    } // end dbSetup()
+    }, // end dbSetup()
+
+
+
+    // Provide some mock testing objects for code that fits into
+    // the express middleware tools.
+    // returns req
+    mockExpressObjects: function() {
+
+        var returnObj = {};
+
+        // Create a req object.
+        // variations: Authenticated, Not Authenticated, No Session
+        returnObj.reqAuthenticated = {
+            session: {
+                authenticated:{}
+            }
+        }
+
+        returnObj.reqNotAuthenticated = {
+            session: {}
+        }
+
+        returnObj.reqNoSession = {};
+
+
+        // Create the res objeccts:
+        // variations:  Expecting Errors, Not Expecting Errors
+        // resExpectingErrors: is expecting one of it's methods to be called.
+        // resNoError: is not expecting any of it's methods to be called.
+        function fnCatchError (message, number) {
+            assert.ok(true, ' -> user was prevented!');
+            if (number) {
+                assert.operator(number, '>=', 400, ' => http response # indicates an error.');
+            }
+        }
+        returnObj.resExpectingError = {
+            forbidden:fnCatchError,
+            send:fnCatchError
+        }
+
+
+        function fnNoError( message, number) {
+            assert.ok(false, ' ==> user should not have been prevented.');
+        }
+        returnObj.resNoError = {
+            forbidden: fnNoError,
+            send: fnNoError
+        }
+
+
+        function noNext() {
+            assert.ok(false, ' -> should not have proceeded! ');
+        }
+        returnObj.noNext = noNext;
+
+
+        function yesNext() {
+            assert.ok(true, ' -> properly proceeded on');
+        }
+        returnObj.yesNext = yesNext;
+
+
+        return returnObj;
+
+    },
+
+
+
+    // build an instance of the SailsJS environment
+    // callback:  cb(err, sails);
+    sails: function(cb) {
+        var dfd = $.Deferred();
+
+        if (sails) {
+            sailsInstances++;
+            if (cb)  cb(null, sails);
+            dfd.resolve(sails);
+        } else {
+            SailsHelper.build(function(err, _sails){
+                if (err || !_sails) {
+                    if (cb) cb(err||'sails could not be created!');
+                    dfd.reject(err || 'sails could not be created');
+                } else {
+                    sails = _sails;
+                    sailsInstances++;
+                    if (cb) cb(null, sails);
+                    dfd.resolve(sails);
+                }
+            })
+        }
+
+        return dfd;
+    },
+
+
+
+    // Perform common steps to initialize our testing setup
+    // - load SailsJS
+    // - verify given models are all in testing mode
+    // - initialise DB's to expected values
+    testingDBInit: function(options, done) {
+
+        var dfd = $.Deferred();
+        var self = this;
+        var sails = null;
+
+        this.sails(function(err, sailsInst) {
+
+            if (err || !sailsInst) {
+                if (done) done(err | "sails could not be started!");
+                dfd.reject(err);
+
+            } else {
+                sails = sailsInst;
+
+                // make sure all our models are in 'testing' mode
+                 var models = [];
+                 options.models = options.models || [];
+                 for (var i=0; i<options.models.length; i++) {
+                     if (GLOBAL[options.models[i]]) {
+                         models.push( GLOBAL[options.models[i]] );
+                     }
+                 }
+
+                 self.verifyTestingEnvironment(sails, models, function(err) {
+
+                     if (err) {
+                         if (done) done(err);
+                         dfd.reject(err);
+                     } else {
+
+                         var countLoaded = 0;
+
+                         function loadData(filePath) {
+                             var cwd = process.cwd();
+                             var fp = path.join(cwd, filePath);
+
+                             // ok, so setup our data to known values.
+//console.log('cwd():'+cwd);
+//console.log('filePath:'+filePath);
+//console.log('combined:'+fp);
+                             var initialData = require(fp);
+                             var setup = self.dbSetup(initialData);
+                             $.when(setup).then(function(data) {
+
+                                 countLoaded++;
+                                 if (countLoaded >= dataPaths.length){
+                                     // all dataPaths loaded so
+                                     // get started with the tests
+                                     if (done) done(null, sails);
+                                     dfd.resolve(sails);
+                                 }
+
+                             })
+                             .fail(function(err){
+                                 if (done) done(err);
+                                 dfd.reject(err);
+                             })
+                         }
+                         var dataPaths = options.dataPaths || [];
+                         for (var f=0; f<dataPaths.length; f++) {
+                             loadData(dataPaths[f]);
+                         }
+
+                         // make sure we exit if no paths were given
+                         if (dataPaths.length == 0){
+                             if (done) done(null, sails);
+                             dfd.resolve(sails);
+                         }
+
+                     }
+                 })
+            }
+        });
+
+        return dfd;
+    },
+
+
+
+    verifyTestingEnvironment: function(sails, models, done) {
+
+        if (typeof done == 'undefined') {
+            done = models;
+            models = [];
+        }
+
+        // check process.env.NODE_ENV
+        if (process.env.NODE_ENV != 'test') done('not testing environment: process.env.NODE_ENV="'+process.env.NODE_ENV+'"')
+//            console.log('process.env.NODE_ENV:['+process.env.NODE_ENV+']');
+
+        // check ../config/local.js  .environment == 'development' || 'testing'
+        if (sails.config.environment == 'production') done('not testing environment: sails.config.environment="'+sails.config.environment+'"');
+
+        // foreach model provided,  make sure it is not tied to a 'live_*' db
+        for (var m=0; m<models.length; m++) {
+            if (models[m].adapter.config.database.indexOf('live_') != -1) {
+                return(done('model ['+models[m].identity+'] tied to a live database:'+models[m].adapter.config.database))
+            }
+        }
+
+        // if we get here, then I think all the checks pass.
+        done();
+    }
+
 }
 
 

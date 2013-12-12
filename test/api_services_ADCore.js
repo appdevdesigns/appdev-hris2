@@ -34,7 +34,85 @@ describe('test api/services/ADCore.js :', function () {
 
 
 
-    describe(' ADCore works properly  ', function() {
+    describe(' ADCore.hasPermission() works properly  ', function() {
+
+        var reqNoViewer   = null;
+        var reqWithPerm   = null;
+        var reqNoPerm     = null;
+
+        var viewer_with_perm = {
+            hasPermission:function() { return true }
+        };
+
+        var viewer_no_perm = {
+            hasPermision:function() { return false }
+        }
+
+
+        var resExpectingError = null;
+        var resNoError = null;
+
+        var noNext = null;
+        var yesNext = null;
+
+        var hasPermission = null;
+
+        // before we get started, create some mock Express objects (req, res)
+        before(function(){
+
+            var mockObjects = ADUtil.mockExpressObjects();
+            reqNoViewer = $.extend({}, mockObjects.reqAuthenticated);
+
+            reqWithPerm = $.extend({}, mockObjects.reqAuthenticated);
+            reqWithPerm.session.appdev = {
+                user:viewer_with_perm
+            }
+
+            reqNoPerm = $.extend({}, mockObjects.reqAuthenticated);
+            reqNoPerm.session.appdev = {
+                user:viewer_no_perm
+            }
+
+            resExpectingError = $.extend({}, mockObjects.resExpectingError);
+            resNoError = $.extend({}, mockObjects.resNoError);
+
+            noNext = mockObjects.noNext;
+            yesNext = mockObjects.yesNext;
+
+
+            hasPermission = ADCore.hasPermission;
+        })
+
+/*
+        // Missing Viewers should fail
+        it(' -> missing users should fail ', function() {
+            hasPermission(reqNoViewer, resExpectingError, noNext, 'test');
+        });
+
+
+        // Calls without an action key should fail
+        it(' -> missing action key should fail ', function() {
+            hasPermission(reqWithPerm, resExpectingError, noNext);
+        });
+
+
+        // viewers with no permission should fail
+        it(' -> users without permission should fail ', function() {
+            hasPermission(reqNoPerm, resExpectingError, noNext, 'test');
+        })
+
+*/
+        // viewers with permission should pass
+        it(' -> users with permission should pass ', function() {
+            hasPermission(reqWithPerm, resNoError, yesNext, 'test');
+        })
+
+
+    });
+
+
+
+    describe(' ADCore.labelsForContext() works properly  ', function() {
         var englishLabels = null;
         var koreanLabels = null;
         var noLangLabels = null;

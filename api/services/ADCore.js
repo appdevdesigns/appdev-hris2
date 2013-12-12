@@ -10,46 +10,68 @@ var $ = require('jquery');
 
 module.exports = {
 
-        labelsForContext: function(context, code, cb) {
-            var dfd = $.Deferred();
 
-            // verify cb is properly set
-            if (typeof code == 'function') {
-                if (typeof cb == 'undefined') {
-                    cb = code;
-                    code = 'en';    // <-- this should come from site Default
-                }
+    hasPermission: function(req, res, next, actionKey) {
+        // only continue if current user has an actionKey in one of their
+        // permissions.
+
+//// TODO: <2013/12/12> Johnny : uncomment the unit tests for this action
+////       when implemented.
+
+// console.log('ADCore.hasPermission() :  actionKey:' + actionKey);
+        // pull req.session.appdev.user
+        // if (user.hasPermission( actionKey) ) {
+        //     next();
+        // } else {
+        //     res.forbidden('you dont have permission to access this resource.');
+        // }
+
+        // for now just
+        next();
+    },
+
+
+
+    labelsForContext: function(context, code, cb) {
+        var dfd = $.Deferred();
+
+        // verify cb is properly set
+        if (typeof code == 'function') {
+            if (typeof cb == 'undefined') {
+                cb = code;
+                code = 'en';    // <-- this should come from site Default
             }
-
-
-            // options is the filter for our SiteMultilingualLabel.find()
-            // make sure something is set for context
-            var options = {
-                label_context: context || ''
-            };
-
-
-            // optionally set code if provided
-            if (code) {
-                options.language_code = code;
-            }
-
-
-            SiteMultilingualLabel.find(options)
-            .then(function(data){
-
-                if (cb) cb(null, data);
-                dfd.resolve(data);
-
-            })
-            .fail(function(err){
-
-                if (cb) cb(err);
-                dfd.reject(err);
-            });
-
-            return dfd;
         }
+
+
+        // options is the filter for our SiteMultilingualLabel.find()
+        // make sure something is set for context
+        var options = {
+            label_context: context || ''
+        };
+
+
+        // optionally set code if provided
+        if (code) {
+            options.language_code = code;
+        }
+
+
+        SiteMultilingualLabel.find(options)
+        .then(function(data){
+
+            if (cb) cb(null, data);
+            dfd.resolve(data);
+
+        })
+        .fail(function(err){
+
+            if (cb) cb(err);
+            dfd.reject(err);
+        });
+
+        return dfd;
+    }
 };
 
 
