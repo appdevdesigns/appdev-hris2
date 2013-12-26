@@ -10,11 +10,11 @@ var sails = null;
 
 
 var assert = require('chai').assert;
-describe('test api/controllers/ADLanguageController.js :', function () {
+describe('test api/controllers/ADCoreController.js :', function () {
 
     before(function(done){
 
-        this.timeout(10000);
+        this.timeout(15000);
 
         var initDone = ADUtil.testingDBInit({
             models:[],
@@ -33,10 +33,10 @@ describe('test api/controllers/ADLanguageController.js :', function () {
 
     describe(' Controller is properly setup  ', function() {
 
-        // Our Model exists
+        // Our Controller exists
         it(' -> Our Controller is loaded ', function() {
 
-            assert.isDefined( sails.controllers.adlanguage,  ' => sails found our ADLanguageController')
+            assert.isDefined( sails.controllers.adcore,  ' => sails found our ADCoreController')
 
         });
 
