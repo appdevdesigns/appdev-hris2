@@ -18,7 +18,8 @@ module.exports.policies = {
   // (`true` allows public access)
   '*': true,
 
-  ADLanguageController: {
+  ADCoreController: {
+      configData: ['isAuthenticated'],
       labelConfigFile:[ 'isAuthenticated' ],
   },
 

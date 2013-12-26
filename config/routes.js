@@ -93,9 +93,10 @@ module.exports.routes = {
   'get /*(^.*)': 'UserController.profile'
 
   */
-  , 'get /page/*/*': 'PageController.pageAsset'
-  , 'get /site/labels/:context': 'ADLanguageController.labelConfigFile'
-  , 'get /site/labels/:context/*': 'ADLanguageController.labelConfigFile'
+  , 'get /page/*/*'                 : 'PageController.pageAsset'
+  , 'get /site/config/data.js'      : 'ADCoreController.configData'
+  , 'get /site/labels/:context'     : 'ADCoreController.labelConfigFile'
+  , 'get /site/labels/:context/*'   : 'ADCoreController.labelConfigFile'
 
 };
 
