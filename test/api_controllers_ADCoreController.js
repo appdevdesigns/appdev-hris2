@@ -35,11 +35,15 @@ describe('test api/controllers/ADCoreController.js :', function () {
 
         // Our Controller exists
         it(' -> Our Controller is loaded ', function() {
-
             assert.isDefined( sails.controllers.adcore,  ' => sails found our ADCoreController')
-
         });
 
+
+        // Our expected Services:
+        it(' -> Our expected Services ', function() {
+            assert.isDefined( sails.controllers.adcore.configData,  ' => sails found our configData()');
+            assert.isDefined( sails.controllers.adcore.labelConfigFile,  ' => sails found our labelConfigFile()');
+        });
 
     });
 

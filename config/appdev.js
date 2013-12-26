@@ -8,7 +8,7 @@
 
 module.exports.appdev = {
 
-  // Which Type of authentiation mechanism is in place for the curren setup:
+  // Which Type of authentication mechanism is in place for the current setup:
   // 'local' : basic username / password, successfully stored users session
   // 'CAS'   : utilize Central Authentication System
   'authType': 'local',
