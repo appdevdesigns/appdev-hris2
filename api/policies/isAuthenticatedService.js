@@ -21,6 +21,6 @@ module.exports = function(req, res, next) {
 
     // User is not allowed
     // (default res.forbidden() behavior can be overridden in `config/403.js`)
-////TODO: <2013/12/12> Johnny : This should be multilingual
-    return res.forbidden('You are not permitted to perform this action.');
+    // return res.forbidden('You are not permitted to perform this action.');
+    return ADCore.comm.reauth(res);
 };
