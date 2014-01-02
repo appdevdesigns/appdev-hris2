@@ -10,6 +10,8 @@ div { position: relative; }
 .row { overflow: hidden; }
 
 /* =HRIS App */
+#hris { padding: 0 15px; margin: 0 auto; width: 100%;}
+
 .hris-control-column { overflow: hidden; position: relative; }
 .hris-container-masthead { background-color: #f0f0f0; }
 .hris-menu-trigger, .hris-menu-trigger icon i { color: #333; opacity: 1 !important; }
