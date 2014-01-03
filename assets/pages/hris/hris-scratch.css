@@ -1,6 +1,6 @@
 .gb { background-color: #f7f7f7; }
 
-html, body { height: 100% !important; }
+html, body { height: 100% !important; margin: 0; padding: 0; overflow: hidden; overflow-x: hidden; overflow-y: hidden; }
 body { font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif; color: #333; }
 a { color: #333333; text-decoration: none; opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out;}
 a:hover { color: #333333; opacity: 1; }
@@ -10,14 +10,14 @@ div { position: relative; }
 .row { overflow: hidden; }
 
 /* =HRIS App */
-#hris { padding: 0 15px; margin: 0 auto; width: 100%;}
-
-.hris-control-column { overflow: hidden; position: relative; }
+.hris-container-full { padding: 0; margin: 0; width: 100%; }
+.hris-container { margin: 0; border-radius: 0; border: 0; }
+.hris-control-column { overflow: hidden; position: relative; margin-left: 15px; }
 .hris-container-masthead { background-color: #f0f0f0; }
 .hris-menu-trigger, .hris-menu-trigger icon i { color: #333; opacity: 1 !important; }
 .hris-menu-trigger:hover { color: #333; text-decoration: none; }
 
-.hris-fill { min-height: 100%; height: 100%; }
+/*.hris-fill { min-height: 100%; height: 100%; }*/
 
 .icons, .hris-widget-button-icon {position:absolute;top:9px;right:0;margin-top:-10px;}
 .hris-widget-button-icon {top:8px;right:0;margin-top:-10px; }
@@ -33,10 +33,10 @@ div { position: relative; }
 .hris-widget-masthead .hris-widget-meta { color: #777777; margin: 15px 0; }
 .hris-widget-masthead .hris-widget-meta-desc { font-size: 0.75em; }
 
-.hris-widget-inner { overflow: scroll; height: 515px; }
-.hris-widget-inner-menu { height: 635px; }
-.hris-widget-inner-set { height: 310px; }
-.hris-widget-inner-attr { height: 309px; }
+.hris-widget-inner { overflow: auto; position: absolute; top: 15px; left: 0; right: 0; bottom: 0; -webkit-overflow-scrolling: touch; }
+.hris-widget-inner-menu { }
+.hris-widget-inner-set { }
+.hris-widget-inner-attr { }
 
 
 .hris-nav-list { }
@@ -57,7 +57,7 @@ div { position: relative; }
 
 /* =HRIS Menu Widget */
 /*.hris-menu-widget { padding-left: 15px; padding-right: 0; float: left; position: absolute; top: 0; left: -150px; width: 150px; overflow: hidden; }*/
-.hris-menu-widget { padding-left: 15px; padding-right: 0; position: absolute; top: 0; left: -150px; width: 150px; }
+.hris-menu-widget { padding: 0; position: absolute; top: 0; left: -150px; width: 150px; }
 #hris-menu-widget { background-color: #444; }
 #hris-menu-widget ul li { color: #fff; }
 
