@@ -34,6 +34,99 @@ describe('test api/services/ADCore.js :', function () {
 
 
 
+    describe(' ADCore.comm tests  ', function() {
+
+        // Create a Mock Response object to gather response details
+        var mockRes = function() {
+            this.httpHeaders = {};
+            this.data = '';
+            this.status = 0;
+        };
+
+        mockRes.prototype.header = function(type, value) {
+            this.httpHeaders[type] = value;
+        };
+
+        mockRes.prototype.send = function(data, code) {
+            this.data = JSON.parse(data);
+            this.status = code;
+        };
+
+
+        var errorResNoCode = new mockRes();
+        var errorResCode = new mockRes();
+
+        var successResNoCode = new mockRes();
+        var successResCode = new mockRes();
+
+        var reauth = new mockRes();
+
+        before(function(){
+
+            ADCore.comm.error(errorResNoCode, { id:'id', message:'message', test:'test' });
+            ADCore.comm.error(errorResCode, { id:'id', message:'message', test:'test' }, 499);
+
+            ADCore.comm.success(successResNoCode, { test:'test' });
+            ADCore.comm.success(successResCode, { test:'test' }, 299);
+
+            ADCore.comm.reauth(reauth);
+        });
+
+
+        // Errors are properly formatted
+        it(' -> Errors formatted properly ', function() {
+
+            assert.equal( errorResNoCode.httpHeaders['Content-type'], 'application/json', ' => content-type set to application/json ');
+            assert.equal( errorResCode.httpHeaders['Content-type'], 'application/json', ' => content-type set to application/json ');
+
+            assert.isDefined(errorResNoCode.data.status, ' => status field set');
+            assert.isDefined(errorResCode.data.status, ' => status field set');
+
+            assert.equal(errorResNoCode.data.status, 'error', ' => status set to "error" ');
+            assert.equal(errorResCode.data.status, 'error', ' => status set to "error" ');
+
+            assert.equal(errorResNoCode.status, 400, ' => http status defaults to 400 ');
+            assert.equal(errorResCode.status, 499, ' => http status properly set ');
+
+        });
+
+
+        // Successes are properly formatted
+        it(' -> Successes formatted properly ', function() {
+
+            assert.equal( successResNoCode.httpHeaders['Content-type'], 'application/json', ' => content-type set to application/json ');
+            assert.equal( successResCode.httpHeaders['Content-type'], 'application/json', ' => content-type set to application/json ');
+
+            assert.isDefined(successResNoCode.data.status, ' => status field set');
+            assert.isDefined(successResCode.data.status, ' => status field set');
+
+            assert.equal(successResNoCode.data.status, 'success', ' => status set to "success" ');
+            assert.equal(successResCode.data.status, 'success', ' => status set to "success" ');
+
+            assert.equal(successResNoCode.status, 200, ' => http status defaults to 200 ');
+            assert.equal(successResCode.status, 299, ' => http status properly set ');
+
+        });
+
+
+        // Reauth() requests are formatted properly
+        it(' -> reauth() formatted properly ', function() {
+
+            assert.equal( reauth.httpHeaders['Content-type'], 'application/json', ' => content-type set to application/json ');
+            assert.isDefined(reauth.data.status, ' => status field set');
+            assert.isDefined(reauth.data.id, ' => id field set');
+            assert.isDefined(reauth.data.message, ' => message field set');
+            assert.equal(reauth.data.status, 'error', ' => status set to "error" ');
+            assert.equal(reauth.data.id, 5, ' => id set to 5 ');
+            assert.equal(reauth.data.message, 'Reauthenticate.', ' => message set to "Reauthenticate" ');
+            assert.equal(reauth.status, 401, ' => http status defaults to 400 ');
+
+        });
+
+    });
+
+
+
     describe(' ADCore.hasPermission() works properly  ', function() {
 
         var reqNoViewer   = null;
@@ -139,6 +232,7 @@ describe('test api/services/ADCore.js :', function () {
             })
         })
 
+
         // Our Service exists
         it(' -> Our Service is loaded ', function() {
             assert.isDefined( sails.services.adcore,
@@ -157,8 +251,6 @@ describe('test api/services/ADCore.js :', function () {
 
         });
 
-
     });
-
 
 })
