@@ -2,8 +2,8 @@
 
 html, body { height: 100% !important; margin: 0; padding: 0; overflow: hidden; overflow-x: hidden; overflow-y: hidden; }
 body { font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif; color: #333; }
-a { color: #333333; text-decoration: none; opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out;}
-a:hover { color: #333333; opacity: 1; }
+a { color: #333333; text-decoration: none; opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; outline: 0; border: 0;}
+a:hover, a:visited { color: #333333; opacity: 1; outline: 0; border: 0;}
 
 div { position: relative; }
 
@@ -57,9 +57,10 @@ div { position: relative; }
 
 /* =HRIS Menu Widget */
 /*.hris-menu-widget { padding-left: 15px; padding-right: 0; float: left; position: absolute; top: 0; left: -150px; width: 150px; overflow: hidden; }*/
-.hris-menu-widget { padding: 0; position: absolute; top: 0; left: -150px; width: 150px; }
+.hris-menu-widget { padding: 0; position: absolute; top: 0; left: -200px; width: 200px; }
 #hris-menu-widget { background-color: #444; }
 #hris-menu-widget ul li { color: #fff; }
+.add-menu-links { border-top: 1px solid #666; }
 
 /* =HRIS Object Widget */
 .hris-object-widget { padding-left: 0; padding-right: 0; overflow: hidden; position: relative; top: 0; left: 0; }
