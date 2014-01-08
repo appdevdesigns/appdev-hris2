@@ -8,7 +8,8 @@ steal(
 
 ).then(
         "appdev/widgets/ad_list_crud",
-		"HrisUI/setup.js"
+        "OpsPortal/setup.js"
+//		"HrisUI/setup.js"
 ).then(function(){
 
     // All dependencies loaded by now
@@ -16,8 +17,8 @@ steal(
 
 
 
-    new AD.controllers.HrisUI('#hris', {});
-
+//    new AD.controllers.HrisUI('#hris', {});
+    new AD.controllers.OpsPortal('#portal')
 
 
 

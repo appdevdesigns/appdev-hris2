@@ -4,17 +4,20 @@
     </div>
 	<!-- <div class="panel-body"> -->
 	<div class="hris-fill">
-		<div class="row">
-			
-			<div class="hris-control-column">				
-				<div class="hris-menu-widget"></div>
-				<div class='col-md-2 hris-object-widget'></div>
-				<div class='col-md-2 hris-set-attr-widget'>
-					<div class='hris-set-widget'></div>
-					<div class='hris-attr-widget'></div>
-				</div>
+	    <div class="hris-menu-widget"></div>
+		<div class="row portal-content">
+            <div class="portal-area-hradmin">
+                <div class="hris-admin-objectdef">
+                    <div class="hris-control-column">			
+                        <div class='col-md-2 hris-object-widget'></div>
+                        <div class='col-md-2 hris-set-attr-widget'>
+                            <div class='hris-set-widget'></div>
+                            <div class='hris-attr-widget'></div>
+                        </div>
+                    </div>
+                    <div class='hris-content-area'></div>
+                </div>
 			</div>
-			<div class='hris-content-area'></div>
 		</div>
     </div>
 </div>
@@ -24,15 +27,19 @@
 $(document).ready(function() {
   $('.hris-menu-trigger').click(function() {
     var $hris_menu = $('.hris-menu-widget'),
-		$hris_object = $('.hris-object-widget'),
-		$hris_set_attr = $('.hris-set-attr-widget');
+//		$hris_object = $('.hris-object-widget'),
+//		$hris_set_attr = $('.hris-set-attr-widget');
 
+        $hris_portal_content = $('.portal-content');
 		
 		$hris_menu.animate({
 		      left: parseInt($hris_menu.css('left'),10) == 0 ? -$hris_menu.outerWidth() : 0
 		    });
-		$hris_object.animate({ left: parseInt($hris_object.css('left'),10) == 0 ? 200 : 0 });
-		$hris_set_attr.animate({ left: parseInt($hris_set_attr.css('left'),10) == 0 ? 200 : 0 });
+//		$hris_object.animate({ left: parseInt($hris_object.css('left'),10) == 0 ? 200 : 0 });
+//		$hris_set_attr.animate({ left: parseInt($hris_set_attr.css('left'),10) == 0 ? 200 : 0 });
+		
+		// cause the whole content area to slide 
+		$hris_portal_content.animate({ left: parseInt($hris_portal_content.css('left'),10) == 0 ? $hris_menu.outerWidth() : 0 });
 				
   });
 

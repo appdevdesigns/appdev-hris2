@@ -1,0 +1,59 @@
+
+div { position: relative; }
+
+.row { overflow: hidden; }
+
+/* =Portal App */
+.apd-portal-container-full { padding: 0; margin: 0; width: 100%; }
+.apd-portal-container { margin: 0; border-radius: 0; border: 0; }
+.apd-portal-control-column { overflow: hidden; position: relative; margin-left: 15px; }
+.apd-portal-container-masthead { background-color: #f0f0f0; }
+.apd-portal-menu-trigger, .apd-portal-menu-trigger icon i { color: #333; opacity: 1 !important; }
+.apd-portal-menu-trigger:hover { color: #333; text-decoration: none; }
+
+/*.apd-portal-fill { min-height: 100%; height: 100%; }*/
+
+.icons, .apd-portal-widget-button-icon {position:absolute;top:9px;right:0;margin-top:-10px;}
+.apd-portal-widget-button-icon {top:8px;right:0;margin-top:-10px; }
+.icons { display: none; }
+.icons .icon, .apd-portal-widget-button-icon .icon {position:relative;top:0;left:0;display:inline-block;opacity:.5;-webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
+.icons .icon:hover, .apd-portal-widget-button-icon .icon:hover {opacity:1;}
+.apd-portal-icon-fw { margin-right: 0.5em; font-size: 1.5rem; }
+
+/* =Portal Widgets */
+.apd-portal-widget-container { border-right: 1px solid rgba(0, 0, 0, 0.1); /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/ padding-top: 15px; background-color: #f0f0f0; }
+.apd-portal-widget-masthead { margin: 0 15px; }
+.apd-portal-widget-masthead .apd-portal-widget-title { font-size: 1.2em; margin: 0; padding:0; }
+.apd-portal-widget-masthead .apd-portal-widget-meta { color: #777777; margin: 15px 0; }
+.apd-portal-widget-masthead .apd-portal-widget-meta-desc { font-size: 0.75em; }
+
+.apd-portal-widget-inner { overflow: auto; position: absolute; top: 15px; left: 0; right: 0; bottom: 0; -webkit-overflow-scrolling: touch; }
+.apd-portal-widget-inner-menu { }
+.apd-portal-widget-inner-set { }
+.apd-portal-widget-inner-attr { }
+
+
+.apd-portal-nav-list { }
+.apd-portal-nav-list li { position: relative; display: block; padding: 0.75em 15px; cursor:pointer; margin: 0; }
+.apd-portal-nav-list li .apd-portal-nav-list-item { opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
+.apd-portal-nav-list li .apd-portal-nav-list-item:hover { opacity: 1; }
+.apd-portal-nav-list-item:hover .icons { display: block; }
+
+.apd-portal-widget-nav-sub { position: absolute; bottom: 0; left: 0; width: 100%; }
+.apd-portal-toggle, .apd-portal-modal { display: block; padding: 15px 0; margin: 0; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; width: 100%; }
+
+.apd-portal-active { background-color: rgba(255, 255, 255, 0.65) !important; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+.apd-portal-active .apd-portal-nav-list-item, .apd-portal-active .apd-portal-item-icon i { font-weight: bold; color: #333333; opacity: 1 !important; }
+.apd-portal-active-object { }
+.apd-portal-active-sub .icons { display: block; }
+.apd-portal-active-sub .apd-portal-nav-list-item, .apd-portal-active-sub .apd-portal-item-icon i, .apd-portal-active-menu .apd-portal-nav-list-item, .apd-portal-active-menu .apd-portal-item-icon i { font-weight: bold; color: #333333; opacity: 1 !important; }
+.apd-portal-active-menu .apd-portal-nav-list-item, .apd-portal-active-menu .apd-portal-item-icon i { color: #fff; }
+
+/* =Portal Menu Widget */
+.apd-portal-menu-widget { padding: 0; position: absolute; top: 0; left: -200px; width: 200px; }
+#apd-portal-menu-widget { background-color: #444; }
+#apd-portal-menu-widget ul li { color: #fff; }
+.add-menu-links { border-top: 1px solid #666; }
+
+
+
