@@ -1,55 +1,41 @@
-<div class="panel panel-default hris-container" style="border: 0;">
-    <div class="panel-heading hris-container-masthead">
-		<a class="hris-menu-trigger" href="#"><span class="icon"><i class="fa fa-bars"></i></span> <span class="hris-menu-trigger-text">Menu</span></a>
+<div class="panel panel-default hris-container">
+	<div class="hris-container-masthead">
+		<a class="hris-menu-trigger" href="#sidr"><span class="icon"><i class="fa fa-bars"></i></span> <span class="hris-menu-trigger-text">Menu</span></a>
     </div>
-	<!-- <div class="panel-body"> -->
-	<div class="hris-fill">
-		<div class="row">
-			
-			<div class="hris-control-column">				
-				<div class="hris-menu-widget"></div>
-				<div class='col-md-2 hris-object-widget'></div>
-				<div class='col-md-2 hris-set-attr-widget'>
-					<div class='hris-set-widget'></div>
-					<div class='hris-attr-widget'></div>
-				</div>
-			</div>
-			<div class='hris-content-area'></div>
+	<div class="hris-menu-widget" id="sidr"></div>
+	
+	<div class="row">
+		<div class='col-md-2 hris-object-widget'></div>
+		<div class='col-md-2 hris-set-attr-widget'>
+			<div class='hris-set-widget'></div>
+			<div class='hris-attr-widget'></div>
 		</div>
-    </div>
+		<div class='col-md-8 hris-stage'></div>			
+		
+	</div>
+	<!--<div class="row">
+		<div class="col-md-12 hris-newitem-widget sidr sidr-newitem" id="sidr-newitem"></div>
+	</div>-->
 </div>
 
 
 <script>
-$(document).ready(function() {
-  $('.hris-menu-trigger').click(function() {
-    var $hris_menu = $('.hris-menu-widget'),
-		$hris_object = $('.hris-object-widget'),
-		$hris_set_attr = $('.hris-set-attr-widget');
-
-		
-		$hris_menu.animate({
-		      left: parseInt($hris_menu.css('left'),10) == 0 ? -$hris_menu.outerWidth() : 0
-		    });
-		$hris_object.animate({ left: parseInt($hris_object.css('left'),10) == 0 ? 200 : 0 });
-		$hris_set_attr.animate({ left: parseInt($hris_set_attr.css('left'),10) == 0 ? 200 : 0 });
-				
-  });
-
-});
-
 
 $(document).ready(sizeContent);
 $(window).resize(sizeContent);
  
 function sizeContent() {
 	var newHeight = $(window).height()  - $(".hris-container-masthead").outerHeight(true);
-	//$('.hris-container-full').css("height", newHeight + "px");
-	
-    //var newHeight = $("html").height() - $(".hris-container-masthead").height();
 	$("#hris-menu-widget").css("height", newHeight + "px");
+	$(".hris-stage-container").css("height", newHeight + "px");
 	$("#hris-object-widget").css("height", newHeight + "px");
 	$("#hris-set-widget").css("height", newHeight/2 + "px");
 	$("#hris-attr-widget").css("height", newHeight/2 + "px");
 }
+
+$(document).ready(function() {
+	$('.hris-menu-trigger').sidr({name:'hris-menu-widget',side:'left'});
+	//$('.hris-newitem-trigger').sidr({name:'sidr-newitem', side:'right', displace: false});
+}); 
+
 </script>

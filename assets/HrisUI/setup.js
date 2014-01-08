@@ -8,6 +8,7 @@ steal(
 		"HrisUI/controllers/ObjectList.js",
 		"HrisUI/controllers/SetList.js",
 		"HrisUI/controllers/AttrList.js",
+		"HrisUI/controllers/NewAttr.js",
 		"site/labels/hris2"
 ).then(function(){
 
