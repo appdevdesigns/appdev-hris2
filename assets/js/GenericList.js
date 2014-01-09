@@ -20,6 +20,7 @@ function(){
                     templateDOM: 'js/GenListDOM.ejs',
                     templateItem: 'js/GenListItem.ejs',
                     title: 'List',
+                    onAdd:null,
                     description:null
             }, options);
 
@@ -29,6 +30,12 @@ function(){
             this.loadItems();
 
 
+        },
+
+
+
+        clear:function() {
+            this.data();
         },
 
 
@@ -55,6 +62,16 @@ function(){
                 title: this.options.title,
                 description: this.options.description
             } ));
+
+
+            this.button = {};
+
+            this.button.add = this.element.find('.genlist-button-add');
+            if (this.options.onAdd) {
+                this.button.add.click( this.options.onAdd );
+            } else {
+                this.button.add.hide();
+            }
 
         },
 

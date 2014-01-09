@@ -26,7 +26,9 @@ function(){
 			new AD.controllers.ObjectList(this.element.find('.hris-object-widget'), {});
 			new AD.controllers.SetList(this.element.find('.hris-set-widget'), {});
 			new AD.controllers.AttrList(this.element.find('.hris-attr-widget'), {});
-			new AD.controllers.NewAttr(this.element.find('.hris-stage'), {});
+			new AD.controllers.FormObjectNew(this.element.find('.tool-hris-form-object-new'), {});
+			new AD.controllers.FormSetNew(this.element.find('.tool-hris-form-set-new'), {});
+			new AD.controllers.FormAttrNew(this.element.find('.tool-hris-form-attribute-new'), {});
         },
 
 
