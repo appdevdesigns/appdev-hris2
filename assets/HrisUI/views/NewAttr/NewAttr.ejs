@@ -16,76 +16,77 @@
 <!-- Form Name -->
 <legend>New <em>Attribute</em></legend>
 
-<!-- File Button --> 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="filebutton">Icon</label>
-  <div class="col-md-4">
-    <input id="filebutton" name="filebutton" class="input-file" type="file">
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Attribute Name</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
-  <span class="help-block">help</span>  
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textarea">Attribute Description</label>
-  <div class="col-md-4">                     
-    <textarea class="form-control" id="textarea" name="textarea">default text</textarea>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Column</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
-  </div>
-<div class="col-md-4"><span class="help-block" style='float: left;'>help</span></div>
-</div>
-
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="selectbasic">Data Type</label>
-  <div class="col-md-4">
-    <select name="selectbasic" class="form-control">
-      <option value="1">Text</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Permission</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
-  <span class="help-block">help</span>  
-  </div>
-</div>
-
-<!-- Multiple Checkboxes (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="checkboxes">Unique Key</label>
-  <div class="col-md-4">
-    <label class="checkbox-inline" for="checkboxes-0">
-      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
-      1
-    </label>
-  </div>
-</div>
-
-<!-- Button (Double) -->
-<div class="form-group">
-	<div class="col-md-12 pull-right">
-		<button id="button2id" name="button2id" class="btn pull-right hris-btn hris-btn-dk">Cancel</button>
-		<button type="submit" id="button1id" name="button1id" class="btn btn-primary pull-right hris-btn">Save</button>
+	<div class="col-md-6 col-md-offset-3">
+		<div class="row">
+			
+			<div class="col-md-3"><div class="hris-item-icon-setting gb"><i class="fa fa-map-marker fa-fw fa-3x"></i><a href="#" title="Edit Icon">Edit Icon</a></div></div>
+			<div class="col-md-9">
+				<div class="form-group">
+				    <div class="col-md-11">
+						<select name="selectbasic" class="form-control">
+							<option value="">Parent Object</option>
+							<option value="1">Object 1</option>
+							<option value="2">Object 2</option>
+					    </select>
+					</div>
+					<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+				</div>
+				
+				<div class="form-group">
+				    <div class="col-md-11">
+						<select name="selectbasic" class="form-control">
+							<option value="">Parent Attribute Set</option>
+							<option value="1">AS 1</option>
+							<option value="2">AS 2</option>
+					    </select>
+					</div>
+					<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+				</div>
+			</div>
+		</div>
+		<div class="row hris-margin-top hris-padding-top hris-divider-top">
+			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Attribute Name" class="form-control input-md"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11"><textarea class="form-control" id="textarea" name="textarea">Attribute Description</textarea></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Column" class="form-control input-md"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11">
+			<select name="selectbasic" class="form-control">
+				<option value="0">Data Type</option>
+				<option value="1">Text</option>
+				<option value="2">Option two</option>
+		    </select></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Permission" class="form-control input-md"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top-2x">
+			<div class="col-md-12">
+				<label class="checkbox-inline" for="checkboxes-0"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"> Unique Key</label>
+			</div>
+		</div>
+		
+		<div class="form-group hris-margin-top hris-padding-top hris-divider-top">
+			<div class="col-md-12 pull-right">
+				<button type="submit" id="button1id" name="button1id" class="btn btn-primary pull-right hris-btn">Save</button>
+				<button id="button2id" name="button2id" class="btn pull-right hris-btn hris-btn-dk">Cancel</button>
+			</div>
+		</div>
 	</div>
 </div>
 
