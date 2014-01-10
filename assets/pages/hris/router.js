@@ -15,8 +15,15 @@ steal(
 ).then(
 		'js/jquery.sidr.min.js'
 		, 'styles/jquery.sidr.dark.css'
-		,'js/jquery.formalize.min.js'
-		,'styles/formalize.css'
+		, 'http://cdn.wijmo.com/interop/bootstrap-wijmo.css'
+		, 'http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20133.20.min.css'
+		, 'http://cdn.wijmo.com/jquery.wijmo-open.all.3.20133.20.min.js'
+		, 'http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20133.20.min.js'
+		, 'http://cdn.wijmo.com/interop/wijmo.data.ajax.3.20133.20.js'
+		, 'http://cdn.wijmo.com/wijmo/external/knockout-2.2.0.js'
+		, 'http://cdn.wijmo.com/interop/knockout.wijmo.3.20133.20.js'
+		//,'js/jquery.formalize.min.js'
+		//,'styles/formalize.css'
 ).then(function(){
 
     // All dependencies loaded by now
