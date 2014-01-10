@@ -8,8 +8,11 @@ steal(
 		"HrisUI/controllers/ObjectList.js",
 		"HrisUI/controllers/SetList.js",
 		"HrisUI/controllers/AttrList.js",
-		"HrisUI/controllers/NewAttr.js",
+		"HrisUI/controllers/FormAttrNew.js",
+		"HrisUI/controllers/FormObjectNew.js",
+		"HrisUI/controllers/FormSetNew.js",
 		"site/labels/hris2"
 ).then(function(){
 
 });
+

@@ -19,9 +19,12 @@ function(){
 
             this.dataSource = this.options.dataSource; // AD.models.Projects;
 
+            this.current = {};
+            this.current.object = null;
+
             this.initDOM();
 
-
+            self.list.button.add.hide();
 
             // AD.comm.hub.publish(this.options.notification_selected, { model: model });
             AD.comm.hub.subscribe('hris.object.selected', function(key, data) {
@@ -38,6 +41,8 @@ function(){
                     self.dataSource = list;
                     self.list.data(list);
 
+                    self.list.button.add.show();
+
                 })
             })
 
@@ -45,7 +50,16 @@ function(){
 
 
 
+        addItem:function() {
+
+            AD.comm.hub.publish('hris.form.set.new', {});
+
+        },
+
+
+
         initDOM: function() {
+            var self = this;
 
             this.element.html(can.view(this.options.templateDOM, {} ));
 
@@ -55,7 +69,8 @@ function(){
                 description: '<em>Attribute Sets</em> belong to <em>Objects</em> and contain categorized attributes belonging to an object.',
 //                dataSource:[],  //this.dataSource,
                 templateItem:'HrisUI/views/SetList/item.ejs',
-                notification_selected:'hris.attributeset.selected'
+                notification_selected:'hris.attributeset.selected',
+                onAdd:function() { self.addItem();  }
             });
         },
 

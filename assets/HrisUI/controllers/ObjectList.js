@@ -38,7 +38,16 @@ function(){
 
 
 
+        addItem:function() {
+
+            AD.comm.hub.publish('hris.form.object.new', {});
+
+        },
+
+
+
         initDOM: function() {
+            var self = this;
 
             // insert our base DOM with the Column contents: objectlist, and bottom elements
             this.element.html(can.view(this.options.templateDOM, {} ));
@@ -49,7 +58,8 @@ function(){
                 description: '<em>Objects</em> lets you add, delete, and configure the objects available in the HRIS system.',
 //                dataSource:[],  //this.dataSource,
                 templateItem:'HrisUI/views/ObjectList/item.ejs',
-                notification_selected:'hris.object.selected'
+                notification_selected:'hris.object.selected',
+                onAdd:function() { self.addItem();  }
             });
 
         },

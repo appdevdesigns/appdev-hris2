@@ -6,18 +6,30 @@ function(){
 
 
 
-    AD.controllers.NewAttr = can.Control.extend({
+    AD.controllers.FormSetNew = can.Control.extend({
 
 
         init: function( element, options ) {
             var self = this;
             this.options = AD.defaults({
-                    templateDOM: 'HrisUI/views/NewAttr/NewAttr.ejs',
+                    templateDOM: 'HrisUI/views/FormSetNew/FormSetNew.ejs',
             }, options);
 
             this.dataSource = this.options.dataSource; // AD.models.Projects;
 
+            this.element.hide();
+
             this.initDOM();
+
+            // listen for any hris.form request
+            AD.comm.hub.subscribe('hris.form.**', function(key, data) {
+
+                if (key == 'hris.form.set.new') {
+                    self.element.show();
+                } else {
+                    self.element.hide();
+                }
+            })
 
         },
 
