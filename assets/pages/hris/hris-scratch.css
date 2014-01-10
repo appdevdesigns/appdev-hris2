@@ -35,12 +35,16 @@ div { position: relative; }
 .hris-container-full { padding: 0; margin: 0; }
 .hris-container { margin: 0; border-radius: 0; border: 0; overflow-x: hidden; }
 .hris-control-column { overflow: hidden; position: relative; margin-left: 15px; }
-.hris-container-masthead { background-color: #444444 !important; border-radius: 0 !important; padding: 15px; /*box-shadow: 0 1px 1px #333; z-index: 5000; */}
-.hris-menu-trigger, .hris-menu-trigger icon i { color: #f0f0f0 !important; opacity: 1 !important; }
-.hris-menu-trigger:hover { color: #444444; text-decoration: none; }
+.hris-container-masthead { background-color: #444444 !important; border-radius: 0 !important; padding: 20px; /*box-shadow: 0 1px 1px #333; z-index: 5000; */}
+.hris-menu-trigger, .hris-menu-trigger icon i { /*color: #f0f0f0 !important; opacity: 1 !important; */ color: #fff !important; outline: 0; border: 0; text-decoration: none; }
+.hris-menu-trigger:hover, .hris-menu-trigger:active, .hris-menu-trigger:visited { /*color: #444444; */ text-decoration: none; outline: 0; border: 0; text-decoration: none; }
 
-.icons, .hris-widget-button-icon {position:absolute;top:9px;right:0;margin-top:-10px;}
-.hris-widget-button-icon {top:8px;right:0;margin-top:-10px; }
+
+.hris-nav-contextual > li > a { color: #fff !important; margin: 0; padding: 0 15px; }
+.hris-nav-contextual > li > a:hover { background-color: transparent; color: #f00; }
+
+.icons, .hris-widget-button-icon {position:absolute;top:9px;right:0;margin-top:-10px; }
+.hris-widget-button-icon {top:8px;right:0;margin-top:-10px; width: 40px; }
 .icons { display: none; }
 .icons .icon, .hris-widget-button-icon .icon {position:relative;top:0;left:0;display:inline-block;opacity:.5;-webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
 .icons .icon:hover, .hris-widget-button-icon .icon:hover {opacity:1;}
@@ -52,7 +56,7 @@ div { position: relative; }
 /* =HRIS Widgets */
 .hris-widget-container { border-right: 1px solid rgba(0, 0, 0, 0.1); /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/ padding-top: 15px; background-color: #f0f0f0; }
 .hris-widget-masthead { margin: 0 15px; }
-.hris-widget-masthead .hris-widget-title { font-size: 1.2em; margin: 0; padding:0; }
+.hris-widget-masthead .hris-widget-title { font-size: 1.2em; margin: 0; padding:0; padding-right: 40px; }
 .hris-widget-masthead .hris-widget-meta { color: #777777; margin: 15px 0; }
 .hris-widget-masthead .hris-widget-meta-desc { font-size: 0.75em; }
 
