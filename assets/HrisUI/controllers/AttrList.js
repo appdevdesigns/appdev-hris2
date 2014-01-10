@@ -32,7 +32,7 @@ function(){
                 self.current.object = data.model;
                 self.current.attributeSet = null;
 
-                self.list.button.add.hide();
+                // self.list.button.add.hide();
 
                 // clear my list of elements
                 self.list.clear();
@@ -55,7 +55,7 @@ function(){
                     self.dataSource = list;
                     self.list.data(list);
 
-                    self.list.button.add.show();
+                    //self.list.button.add.show();
 
                 })
             })
@@ -66,16 +66,7 @@ function(){
 
         addItem:function() {
 
-            if (this.current.object && this.current.attributeSet){
-
-                AD.comm.hub.publish('hris.form.attribute.new', {});
-
-            } else {
-
-                console.log('problem with trying to add now:');
-
-            }
-
+            AD.comm.hub.publish('hris.form.attribute.new', {});
         },
 
 
@@ -95,7 +86,7 @@ function(){
                 onAdd:function() { self.addItem();  }
             });
 
-            this.list.button.add.hide();  // hide the add button
+            //this.list.button.add.hide();  // hide the add button
         },
 
 
