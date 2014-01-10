@@ -24,7 +24,7 @@ function(){
 
             this.initDOM();
 
-            self.list.button.add.hide();
+            //self.list.button.add.hide();
 
             // AD.comm.hub.publish(this.options.notification_selected, { model: model });
             AD.comm.hub.subscribe('hris.object.selected', function(key, data) {
@@ -41,7 +41,7 @@ function(){
                     self.dataSource = list;
                     self.list.data(list);
 
-                    self.list.button.add.show();
+                    //self.list.button.add.show();
 
                 })
             })
