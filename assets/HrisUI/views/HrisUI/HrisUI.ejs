@@ -34,12 +34,18 @@ $(document).ready(sizeContent);
 $(window).resize(sizeContent);
  
 function sizeContent() {
-	var newHeight = $(window).height()  - $(".hris-container-masthead").outerHeight(true);
+	var newHeight = $(window).height()  - $(".hris-container-masthead").outerHeight(true),
+		widgetMasthead = $(".hris-widget-masthead").outerHeight(true);
+		//alert("newHeight is " + newHeight + " and widgetMasthead is " + widgetMasthead);
+	$(".hris-widget-inner").css("padding-top", widgetMasthead + 5);
 	//$("#hris-menu-widget").css("height", newHeight + "px");
 	$(".hris-stage-container").css("height", newHeight + "px");
 	$("#hris-object-widget").css("height", newHeight + "px");
 	$("#hris-set-widget").css("height", newHeight/2 + "px");
 	$("#hris-attr-widget").css("height", newHeight/2 + "px");
+	$("#hris-object-widget .hris-nav-list").css("height", newHeight - widgetMasthead  + "px");
+	$("#hris-set-widget .hris-nav-list").css("height", newHeight/2 - widgetMasthead - 30  + "px");
+	$("#hris-attr-widget .hris-nav-list").css("height", newHeight/2 - widgetMasthead - 30  + "px");
 }
 
 $(document).ready(function() {
@@ -48,9 +54,9 @@ $(document).ready(function() {
 }); 
 
 $(document).ready(function () {
-    $("[title]").wijtooltip({
-		hideDelay: 1000
-	});
+	//$("[title]").wijtooltip({
+	$(".wtt-help").wijtooltip();
+	$(".wtt-field").wijtooltip();
 });
 
 </script>
