@@ -54,13 +54,14 @@ div { position: relative; }
 .hris-bottom-anchor { margin: 0; padding:10px 0; background: #f0f0f0; border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 /* =HRIS Widgets */
-.hris-widget-container { border-right: 1px solid rgba(0, 0, 0, 0.1); /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/ padding-top: 15px; background-color: #f0f0f0; }
-.hris-widget-masthead { margin: 0 15px; }
+.hris-widget-container { border-right: 1px solid rgba(0, 0, 0, 0.1); /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/ padding: 15px 0; background-color: #f0f0f0; }
+.hris-widget-masthead { /*margin: 0 15px; */ position: absolute; top: 0; left: 15px; right: 15px }
 .hris-widget-masthead .hris-widget-title { font-size: 1.2em; margin: 0; padding:0; padding-right: 40px; }
 .hris-widget-masthead .hris-widget-meta { color: #777777; margin: 15px 0; }
 .hris-widget-masthead .hris-widget-meta-desc { font-size: 0.75em; }
 
-.hris-widget-inner { overflow: auto; position: absolute; top: 15px; left: 0; right: 0; bottom: 0; -webkit-overflow-scrolling: touch; }
+/* .hris-widget-inner { overflow: auto; position: absolute; top: 15px; left: 0; right: 0; bottom: 0; -webkit-overflow-scrolling: touch; } */
+.hris-widget-inner { position: relative; }
 .hris-widget-inner-menu { }
 .hris-widget-inner-set { }
 .hris-widget-inner-attr { }
@@ -69,7 +70,7 @@ div { position: relative; }
 .hris-stage-container { position: absolute; top: 0; left: 0; right: 0; width: 100%; background: #fff; margin: 0; padding: 0; overflow-y: auto; }
 .hris-stage-main { clear: right; }
 
-.hris-nav-list { }
+.hris-nav-list { overflow: auto; position: relative; /*position: absolute; top: 85px; left: 0; right: 0; /*bottom: 0;*/ -webkit-overflow-scrolling: touch; }
 .hris-nav-list li { position: relative; display: block; padding: 0.75em 15px; cursor:pointer; margin: 0; }
 .hris-nav-list li .hris-nav-list-item { opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
 .hris-nav-list li .hris-nav-list-item:hover { opacity: 1; }
