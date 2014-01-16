@@ -30,7 +30,7 @@ module.exports.adapters = {
 
     module: 'sails-mysql',
 	host: 'localhost',
-	port: '3306',
+	port: '8889',
     user: 'root',
     // Psst.. You can put your password in config/local.js instead
     // so you don't inadvertently push it up if you're using version control
@@ -43,7 +43,13 @@ module.exports.adapters = {
   // The connection settings to connect to HRiS data.
   hris: {
     module: 'sails-mysql',
-
+	host: 'localhost',
+	port: '8889',
+    user: 'root',
+    // Psst.. You can put your password in config/local.js instead
+    // so you don't inadvertently push it up if you're using version control
+    password: 'root',
+    database: 'test_site'
   }
 
 };

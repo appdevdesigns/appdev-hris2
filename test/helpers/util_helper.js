@@ -257,9 +257,9 @@ module.exports= {
                              var fp = path.join(cwd, filePath);
 
                              // ok, so setup our data to known values.
-//console.log('cwd():'+cwd);
-//console.log('filePath:'+filePath);
-//console.log('combined:'+fp);
+console.log('cwd():'+cwd);
+console.log('filePath:'+filePath);
+console.log('combined:'+fp);
                              var initialData = require(fp);
                              var setup = self.dbSetup(initialData);
                              $.when(setup).then(function(data) {
