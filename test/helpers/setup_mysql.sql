@@ -7,7 +7,7 @@ CREATE TABLE sites_multilingual_labels (
   label_label text,
   label_needstranslation text,
   label_application text,
-  label_context text
+  label_context text,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 
