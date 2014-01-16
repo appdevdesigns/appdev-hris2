@@ -98,6 +98,9 @@ module.exports.routes = {
   , 'get /site/labels/:context'     : 'ADCoreController.labelConfigFile'
   , 'get /site/labels/:context/*'   : 'ADCoreController.labelConfigFile'
 
+
+  , 'get /opsportal/requirements.js': 'OpsPortalController.requirements'
+
 };
 
 

@@ -38,7 +38,7 @@ module.exports = {
 
            ],
            tools:[
-                  { area:'hradmin', controller:'HRAdminObject', label:'Configure Objects'},
+                  { area:'hradmin', controller:'HrisAdminObjects', label:'Configure Objects'},
            ]
         };
       ADCore.comm.success(res, data);
@@ -48,7 +48,21 @@ module.exports = {
 
 
   , requirements:function(req, res) {
-      res.json({ status:'Hey!' })
+
+
+      res.setHeader('content-type', 'application/javascript');
+
+
+      //// tools will be gathered from config/opsportal.js
+      //// and matched against a user's permissions.
+
+      var tools = [
+                   'HrisAdminObjects'
+                   ];
+      res.view({
+          listTools:tools,
+          layout:false
+      });
   }
 
 
