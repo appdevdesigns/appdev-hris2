@@ -34,10 +34,11 @@ $(document).ready(sizeContent);
 $(window).resize(sizeContent);
  
 function sizeContent() {
-	var newHeight = $(window).height()  - $(".hris-container-masthead").outerHeight(true),
+	var containerMasthead = $(".hris-container-masthead").outerHeight(true),
+		newHeight = $(window).height()  - containerMasthead,
 		widgetMasthead = $(".hris-widget-masthead").outerHeight(true);
-		//alert("newHeight is " + newHeight + " and widgetMasthead is " + widgetMasthead);
 	$(".hris-widget-inner").css("padding-top", widgetMasthead + 5);
+	//$(".hris-widget-inner-menu").css("padding-top", containerMasthead + "px");
 	//$("#hris-menu-widget").css("height", newHeight + "px");
 	$(".hris-stage-container").css("height", newHeight + "px");
 	$("#hris-object-widget").css("height", newHeight + "px");
