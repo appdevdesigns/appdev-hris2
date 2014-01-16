@@ -1,0 +1,114 @@
+<div class="hris-stage-container">
+
+<div class="hris-newitem-list">
+	<ul class="list-unstyled list-inline">
+	<li><a href="#" class="btn hris-btn hris-btn-dk" role="button">Create Object</a></li>
+	<li><a href="#" class="btn hris-btn hris-btn-dk" role="button">Create Attribute Set</a></li>
+	<li><a href="#" class="btn hris-btn hris-btn-dk" role="button">Create Attribute</a></li>
+	</ul>
+</div>
+
+<div class="hris-stage-main id="hris-newobject-widget">
+
+<form class="form-horizontal hris-form-container">
+<fieldset>
+
+<!-- Form Name -->
+<legend>New <em>Object</em></legend>
+
+<div class="form-group">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="row">
+			
+			<div class="col-md-12"><div class="hris-item-icon-setting gb"><i class="fa fa-map-marker fa-fw fa-3x"></i><a href="#" title="Add Icon">Add Icon</a></div></div>
+		</div>
+		<div class="row hris-margin-top-2x hris-padding-top hris-divider-top">
+			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Object Name" class="form-control input-md wtt-field" title="Object Name"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="some-class wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11"><textarea class="form-control wtt-field" id="textarea" name="textarea">Object Description</textarea></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="some-class wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Key" class="form-control input-md wtt-field"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Table" class="form-control input-md wtt-field"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Primary Key" class="form-control input-md wtt-field"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top">
+			<div class="col-md-11">
+			<select name="selectbasic" class="form-control wtt-field">
+				<option value="0">Add Relationship</option>
+				<option value="1">Person</option>
+				<option value="2">Family</option>
+		    </select></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+		</div>
+		
+		<div class="row hris-margin-top-2x hris-padding-top-2x hris-divider-top">
+			<div class="col-md-12">
+				<table class="table table-hover hris-item-table">
+		        <thead>
+		          <tr>
+		            <th>Relationship Type</th>
+		            <th>Label</th>
+					<th></th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		          <tr>
+		            <td>
+						<select name="selectbasic" class="form-control">
+							<option value="0">Relationship Type</option>
+							<option value="1">Has Many</option>
+							<option value="2">Belong To</option>
+							<option value="2">Many-to-Many</option>
+					    </select>
+					</td>
+		            <td><input id="textinput" name="textinput" type="text" placeholder="Label" class="form-control input-md"></td>
+					<td><a class="hris-form-delete" href="#" title="Delete"><i class="fa fa-times-circle fa-lg"></i></a></td>
+		          </tr>
+		          <tr>
+		            <td>
+						<select name="selectbasic" class="form-control">
+							<option value="0">Relationship Type</option>
+							<option value="1">Has Many</option>
+							<option value="2">Belong To</option>
+							<option value="2">Many-to-Many</option>
+					    </select>
+					</td>
+		            <td><input id="textinput" name="textinput" type="text" placeholder="Label" class="form-control input-md"></td>
+					<td><a class="hris-form-delete" href="#" title="Delete"><i class="fa fa-times-circle fa-lg"></i></a></td>
+		          </tr>
+		        </tbody>
+		      </table>
+			</div>
+			
+		</div>
+		
+		<div class="form-group hris-margin-top hris-padding-top hris-divider-top">
+			<div class="col-md-12 pull-right">
+				<button type="submit" id="button1id" name="button1id" class="btn btn-primary pull-right hris-btn">Save</button>
+				<button id="button2id" name="button2id" class="btn pull-right hris-btn hris-btn-dk">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+</fieldset>
+</form>
+	
+</div>
+</div>

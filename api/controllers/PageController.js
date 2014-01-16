@@ -72,4 +72,13 @@ module.exports = {
       });
   }
 
+
+
+  , hrisUI: function(req, res) {
+      res.view({
+          Title:'hrisUI',
+          Description: 'Hey, this is a pretty spiffy description!'
+      });
+  }
+
 };
