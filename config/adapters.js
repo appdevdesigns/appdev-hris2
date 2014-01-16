@@ -29,13 +29,6 @@ module.exports.adapters = {
   mysql: {
 
     module: 'sails-mysql',
-
-  },
-
-
-  // The connection settings to connect to HRiS data.
-  hris: {
-    module: 'sails-mysql',
 	host: 'localhost',
 	port: '3306',
     user: 'root',
@@ -43,6 +36,13 @@ module.exports.adapters = {
     // so you don't inadvertently push it up if you're using version control
     password: 'root',
     database: 'test_site'
+
+  },
+
+
+  // The connection settings to connect to HRiS data.
+  hris: {
+    module: 'sails-mysql',
 
   }
 
