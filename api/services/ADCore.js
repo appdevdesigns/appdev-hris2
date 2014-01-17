@@ -124,6 +124,47 @@ module.exports = {
         });
 
         return dfd;
+    },
+
+
+
+    user:{
+
+        /*
+         * Return who the system should think the current user is.
+         *
+         * Note: this will report what switcheroo wants you to think.
+         *
+         * @param {object} req,  the express/sails request object.  User
+         *                 info is stored in the req.session.appdev.user
+         *                 field.
+         */
+        current: function (req) {
+//            return req.session.appdev.user;
+
+//// TODO: implement the authentication so we can have a user object.
+            return {
+                    hasPermission:function() {return true}
+            };
+        },
+
+
+        /*
+         * Return who the current user actually is.
+         *
+         * Note: switcheroo can not spoof this.
+         *
+         * @param {object} req,  the express/sails request object.  User
+         *                 info is stored in the req.session.appdev.actualUser
+         *                 field.
+         */
+        actual: function (req) {
+//            return req.session.appdev.actualUser;
+//// TODO: implement the authentication so we can have a user object.
+            return {
+                    hasPermission:function() {return true}
+            };
+        }
     }
 };
 

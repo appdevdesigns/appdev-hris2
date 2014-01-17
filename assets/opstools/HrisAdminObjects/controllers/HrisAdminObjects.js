@@ -39,6 +39,9 @@ function(){
             new AD.controllers.opstools.HrisAdminObjects.FormObjectNew(this.element.find('.tool-hris-form-object-new'), {});
             new AD.controllers.opstools.HrisAdminObjects.FormSetNew(this.element.find('.tool-hris-form-set-new'), {});
             new AD.controllers.opstools.HrisAdminObjects.FormAttrNew(this.element.find('.tool-hris-form-attribute-new'), {});
+
+            this.element.find('.wtt-help').wijtooltip();
+            this.element.find('.wtt-field').wijtooltip();
         },
 
 

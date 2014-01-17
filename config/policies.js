@@ -24,7 +24,12 @@ module.exports.policies = {
   },
 
   PageController: {
-      hris:['isAuthenticated', 'canHris']
+      hris:['isAuthenticated', 'canOpsPortal']
+  },
+
+  OpsPortalController: {
+      config:['isAuthenticated', 'canOpsPortal', 'opsPortalUserConfig'],
+      requirements:['isAuthenticated', 'canOpsPortal', 'opsPortalUserConfig']
   }
 
   /*
