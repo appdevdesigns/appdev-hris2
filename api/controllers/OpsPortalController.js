@@ -30,6 +30,7 @@ module.exports = {
   // Fixture Data:
   // Use this for initial design and testing
   , config:function(req, res) {
+/*
       var data = {
            areas:[
                   { icon:'fa-user', key:'profile', label:'Profile'},
@@ -41,7 +42,8 @@ module.exports = {
                   { area:'hradmin', controller:'HrisAdminObjects', label:'Configure Objects'},
            ]
         };
-      ADCore.comm.success(res, data);
+*/
+      ADCore.comm.success(res, res.appdev.opsportalconfig);
   }
 
 
@@ -55,10 +57,18 @@ module.exports = {
 
       //// tools will be gathered from config/opsportal.js
       //// and matched against a user's permissions.
-
+/*
       var tools = [
                    'HrisAdminObjects'
                    ];
+*/
+      var tools = [];
+      var data = res.appdev.opsportalconfig;
+      for (var d=0; d< data.tools.length; d++){
+          tools.push( data.tools[d].controller)
+      }
+
+
       res.view({
           listTools:tools,
           layout:false
