@@ -4,12 +4,12 @@ div { position: relative; }
 .row { overflow: hidden; }
 
 /* =Portal App */
-.apd-portal-container-full { padding: 0; margin: 0; width: 100%; }
-.apd-portal-container { margin: 0; border-radius: 0; border: 0; }
+.apd-portal-container-full { padding: 0; margin: 0; }
+.apd-portal-container { margin: 0; border-radius: 0; border: 0; overflow-x: hidden; }
 .apd-portal-control-column { overflow: hidden; position: relative; margin-left: 15px; }
-.apd-portal-container-masthead { background-color: #f0f0f0; }
-.apd-portal-menu-trigger, .apd-portal-menu-trigger icon i { color: #333; opacity: 1 !important; }
-.apd-portal-menu-trigger:hover { color: #333; text-decoration: none; }
+.apd-portal-container-masthead { background-color: #333 !important; border-radius: 0 !important; padding: 20px; /*background-color: #f0f0f0; */}
+.apd-portal-menu-trigger, .apd-portal-menu-trigger icon i { color: #fff !important; outline: 0; border: 0; text-decoration: none; }
+.apd-portal-menu-trigger:hover { text-decoration: none; outline: 0; border: 0; text-decoration: none; }
 
 /*.apd-portal-fill { min-height: 100%; height: 100%; }*/
 

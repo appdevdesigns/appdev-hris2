@@ -30,6 +30,7 @@ function(){
             // listen for resize notifications
             AD.comm.hub.subscribe('opsportal.resize', function (key, data) {
                 self.element.css("height", (data.height/2) + "px");
+				//self.element.find('.hris-nav-list').css("height", data.height/2 + "px");
             });
 
 
