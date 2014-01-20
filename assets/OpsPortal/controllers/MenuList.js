@@ -30,12 +30,6 @@ function(){
             });
 
 
-            // listen for resize notifications
-            AD.comm.hub.subscribe('opsportal.resize', function (key, data) {
-                self.height(data.height);
-            });
-
-
             // listen for menu toggle notifications
             AD.comm.hub.subscribe('opsportal.menu.toggle', function (key, data) {
                 self.toggle(data.width);
@@ -51,12 +45,6 @@ function(){
             this.element.find('.apd-portal-nav-list > ul')
                 .append(can.view(this.options.templateItem, {area:area}));
 
-        },
-
-
-
-        height: function( newHeight ) {
-            this.element.find('#apd-portal-menu-widget').css("height", newHeight + "px");
         },
 
 
