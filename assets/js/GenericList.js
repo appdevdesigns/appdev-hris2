@@ -75,6 +75,13 @@ function(){
 
         },
 
+		resize: function(height, mastheadHeight) {
+			console.log("we are in resize: " + height);
+			this.element.find('.hris-nav-list').css("height", height-mastheadHeight + "px");
+
+            // notify of a resize action.
+            //AD.comm.hub.publish('opsportal.resize', { height: newHeight });
+        },
 
 
         loadItem: function(item, listArea) {

@@ -32,7 +32,7 @@ function(){
 
             // listen for resize notifications
             AD.comm.hub.subscribe('opsportal.resize', function (key, data) {
-                self.height(data.height);
+                //self.height(data.height);
             });
 
 
