@@ -23,6 +23,13 @@ function(){
 
             this.initDOM();
 
+			// listen for resize notifications
+            AD.comm.hub.subscribe('opsportal.resize', function (key, data) {
+
+				self.element.find(".hris-stage-container").css("height", data.height + "px");
+				
+            });
+
             // listen for any hris.form request
             AD.comm.hub.subscribe('hris.form.**', function(key, data) {
 
