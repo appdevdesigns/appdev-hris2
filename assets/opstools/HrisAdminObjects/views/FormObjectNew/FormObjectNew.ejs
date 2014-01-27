@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<div class="hris-stage-main id="hris-newobject-widget">
+<div class="hris-stage-main" id="hris-newobject-widget">
 
 <form class="form-horizontal hris-form-container">
 <fieldset>
@@ -17,44 +17,153 @@
 <legend>New <em>Object</em></legend>
 
 <div class="form-group">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-8 col-md-offset-2">
 		<div class="row">
 			
-			<div class="col-md-12"><div class="hris-item-icon-setting gb"><i class="fa fa-map-marker fa-fw fa-3x"></i><a href="#" title="Add Icon">Add Icon</a></div></div>
+			<div class="col-md-12">
+				<div class="hris-item-icon-setting gb"><i class="fa fa-map-marker fa-fw fa-3x"></i><a href="#new-object-icon" title="Add Icon" data-toggle="modal">Add Icon</a></div>
+				<div class="modal fade" id="new-object-icon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">Add Icon</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-12">
+									<ul class="hris-add-icon">
+									    <li class="col-md-1" data-dismiss="modal"><i class="fa fa-adjust fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-anchor fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-archive fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-arrows fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-arrows-h fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-arrows-v fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-asterisk fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-ban fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bar-chart-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bars fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-beer fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bell fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bell-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bolt fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-book fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bookmark fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bookmark-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-briefcase fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bug fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-building-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-bullhorn fa-fw"></i></li>
+										<li class="col-md-1 active-icon"><i class="fa fa-bullseye fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-calendar fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-calendar-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-camera fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-camera-retro fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-caret-square-o-down fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-caret-square-o-left fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-caret-square-o-right fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-caret-square-o-up fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-certificate fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-check fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-check-circle fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-check-circle-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-check-square fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-check-square-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-circle fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-circle-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-clock-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-cloud fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-cloud-download fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-cloud-upload fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-code fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-coffee fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-cog fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-cogs fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-comment fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-comment-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-comments fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-comments-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-compass fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-credit-card fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-crosshairs fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-cutlery fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-dashboard fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-desktop fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-dot-circle-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-envelope fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-envelope-o fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-exchange fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-exclamation fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-exclamation-circle fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-exclamation-triangle fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-eye fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-female fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-fighter-jet fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-film fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-fire fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-flag fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-flash fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-flask fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-folder fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-gavel fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-gift fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-globe fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-group fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-headphones fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-heart fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-home fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-inbox fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-key fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-laptop fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-leaf fa-fw"></i></li>
+										<li class="col-md-1" data-dismiss="modal"><i class="fa fa-marker fa-fw"></i></li>
+									</ul><!-- .thumbnails -->
+								</div><!-- .span12 -->
+							</div><!-- .row -->
+						</div><!-- .container -->
+
+						<div class="modal-footer">
+							<button type="button" class="btn hris-btn hris-btn-dk" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary pull-right hris-btn">Save changes</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+			</div>
 		</div>
 		<div class="row hris-margin-top-2x hris-padding-top hris-divider-top">
-			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Object Name" class="form-control input-md wtt-field" title="Object Name"></div>
-			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="some-class wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<div class="col-md-11"><input name="textinput" type="text" placeholder="Object Name" class="form-control input-md tt-field" title="Object Name" data-toggle="tooltip" data-original-title="Tooltip on right"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row hris-margin-top">
-			<div class="col-md-11"><textarea class="form-control wtt-field" id="textarea" name="textarea">Object Description</textarea></div>
-			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="some-class wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<div class="col-md-11"><textarea class="form-control tt-field" id="textarea" name="textarea" title="Object Description">Object Description</textarea></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row hris-margin-top">
-			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Key" class="form-control input-md wtt-field"></div>
-			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<div class="col-md-11"><input name="textinput" type="text" placeholder="Key" class="form-control input-md tt-field" title="Key"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row hris-margin-top">
-			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Table" class="form-control input-md wtt-field"></div>
-			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<div class="col-md-11"><input name="textinput" type="text" placeholder="Table" class="form-control input-md tt-field" title="Table"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row hris-margin-top">
-			<div class="col-md-11"><input id="textinput" name="textinput" type="text" placeholder="Primary Key" class="form-control input-md wtt-field"></div>
-			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<div class="col-md-11"><input name="textinput" type="text" placeholder="Primary Key" class="form-control input-md tt-field" title="Primary Key"></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row hris-margin-top">
 			<div class="col-md-11">
-			<select name="selectbasic" class="form-control wtt-field">
+			<select name="selectbasic" class="form-control tt-field" title="Add Relationship">
 				<option value="0">Add Relationship</option>
 				<option value="1">Person</option>
 				<option value="2">Family</option>
 		    </select></div>
-			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="wtt-help"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<div class="col-md-1 hris-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row hris-margin-top-2x hris-padding-top-2x hris-divider-top">
@@ -77,7 +186,7 @@
 							<option value="2">Many-to-Many</option>
 					    </select>
 					</td>
-		            <td><input id="textinput" name="textinput" type="text" placeholder="Label" class="form-control input-md"></td>
+		            <td><input name="textinput" type="text" placeholder="Label" class="form-control input-md"></td>
 					<td><a class="hris-form-delete" href="#" title="Delete"><i class="fa fa-times-circle fa-lg"></i></a></td>
 		          </tr>
 		          <tr>
@@ -89,7 +198,7 @@
 							<option value="2">Many-to-Many</option>
 					    </select>
 					</td>
-		            <td><input id="textinput" name="textinput" type="text" placeholder="Label" class="form-control input-md"></td>
+		            <td><input name="textinput" type="text" placeholder="Label" class="form-control input-md"></td>
 					<td><a class="hris-form-delete" href="#" title="Delete"><i class="fa fa-times-circle fa-lg"></i></a></td>
 		          </tr>
 		        </tbody>

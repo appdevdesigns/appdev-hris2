@@ -4,6 +4,18 @@
 /* =Bootstrap Overrides */
 .form-horizontal .form-group { margin-right: 0; margin-left: 0; }
 
+.tooltip, .popover { position: fixed; }
+.tooltip-inner { background-color: #333333; font-weight: bold; padding: 6px 12px; }
+.tooltip.top .tooltip-arrow, .tooltip.top-left .tooltip-arrow, .tooltip.top-right .tooltip-arrow { border-top-color: #333333; }
+.tooltip.right .tooltip-arrow { border-right-color: #333333; }
+.tooltip.left .tooltip-arrow { border-left-color: #333333; }
+.tooltip.bottom .tooltip-arrow, .tooltip.bottom-left .tooltip-arrow, .tooltip.bottom-right .tooltip-arrow { border-bottom-color: #333333; }
+.popover, .popover-title { background-color: #333333; color: #ffffff; }
+.popover-title { border-bottom: 1px solid #666666; }
+.popover.right .arrow, .popover.right .arrow:after { border-right-color: #333333; }
+.popover-content { line-height: 18px; }
+.modal-content { background-color: #f0f0f0; }
+
 html, body { height: 100% !important; margin: 0; padding: 0; /*overflow: hidden; overflow-x: hidden; overflow-y: hidden; */}
 body { font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif; color: #333; }
 a { color: #333333; text-decoration: none; opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; outline: 0; border: 0;}
@@ -29,7 +41,8 @@ div { position: relative; }
 .hris-btn:hover, .hris-btn:focus { opacity: 1; }
 .hris-btn-dk { color: #fff; background-color: #444444; }
 .hris-btn-dk:hover, .hris-btn-dk:focus { color: #fff; }
-
+.hris-btn-lt { color: #333333; background-color: #f0f0f0; }
+.hris-btn-lt:hover, .hris-btn-lt:focus { color: #333; }
 
 /* =HRIS App */
 .hris-container-full { padding: 0; margin: 0; }
@@ -75,6 +88,7 @@ div { position: relative; }
 .hris-nav-list li .hris-nav-list-item { opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
 .hris-nav-list li .hris-nav-list-item:hover { opacity: 1; }
 .hris-nav-list-item:hover .icons { display: block; }
+/*.hris-nav-list-item .icons { display: block; }*/
 
 .hris-widget-nav-sub { position: absolute; bottom: 0; left: 0; width: 100%; }
 .hris-toggle, .hris-modal { display: block; padding: 15px 0; margin: 0; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; width: 100%; }
@@ -121,3 +135,12 @@ div { position: relative; }
 .hris-form-container option { color: #000; }
 
 .hris-item-table input[type="text"], .hris-item-table select { margin-top: 0 !important; }
+
+/* =Icon list */
+.hris-add-icon { list-style: none; }
+.hris-add-icon > li { float: left; display: block; text-align: center; border: 1px solid #e0e0e0; padding: 15px; }
+.hris-add-icon > li:hover { background-color: #fff; }
+.hris-add-icon > li.active-icon { background-color: #fff; }
+
+/* popover styles */
+.po-buttons { margin-bottom: 15px; }

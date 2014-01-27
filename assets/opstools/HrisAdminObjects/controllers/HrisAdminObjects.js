@@ -40,9 +40,24 @@ function(){
             new AD.controllers.opstools.HrisAdminObjects.FormSetNew(this.element.find('.tool-hris-form-set-new'), {});
             new AD.controllers.opstools.HrisAdminObjects.FormAttrNew(this.element.find('.tool-hris-form-attribute-new'), {});
 
-            this.element.find('.wtt-help').wijtooltip();
-            this.element.find('.wtt-field').wijtooltip();
+			this.element.find('.tt').tooltip(options);
+			this.element.find('.tt-field').tooltip({placement: 'left'});
+			
+			this.element.find('.po-help').popover(options);
+			this.element.find('.po').popover({ 
+			    html : true,
+			    title: function() {
+			      return self.element.find('.po-title').html();
+			    },
+			    content: function() {
+			      return self.element.find('.po-content').html();
+			    }
+			});
+			
+			
         },
+
+
 
 
 
