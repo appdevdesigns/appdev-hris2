@@ -1,9 +1,17 @@
 
 			<li class="genlist-item"  gen-list-del-id="<%= item.getID() %>" >
 				<div class="hris-nav-list-item">
-					<span class="icon hris-item-icon"><i class="fa <%= item.object_icon %> fa-fw hris-icon-fw"></i></span><%= item.attr('object_name') %>
+					<span class="icon hris-item-icon tt"><i class="fa <%= item.object_icon %> fa-fw hris-icon-fw"></i></span><%= item.attr('object_name') %>
 					<div class="icons">
-						<a href="#" title="Delete "><span class="icon"><i class="fa fa-times fa-fw"></i></span></a>
+						<a href="#" class="po" data-placement="right"><span class="icon"><i class="fa fa-times fa-fw"></i></span></a>
+						<div class="po-title hide" id="">Delete XXXXX</div>
+						<div class="po-content hide" id="">
+						  <p>Are you sure you want to delete XXXXX?</p>
+							<div class="col-md-12 pull-right po-buttons">
+								<button id="button1id" name="button1id" class="btn btn-primary pull-right hris-btn">Delete</button>
+								<button id="button2id" name="button2id" class="btn pull-right hris-btn hris-btn-lt">Cancel</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</li>

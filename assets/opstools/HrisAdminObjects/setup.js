@@ -12,6 +12,8 @@ steal(
 		"site/labels/HrisAdminObjects"
 ).then(
         "opstools/HrisAdminObjects/controllers/HrisAdminObjects.js"
+).then(
+		'bootstrap/js/bootstrap.min.js'
 ).then(function(){
 
 });
