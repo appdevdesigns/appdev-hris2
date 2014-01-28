@@ -29,8 +29,78 @@ describe('test api/services/ADCore.js :', function () {
         })
         .fail(function(err){
             done(err);
-        })
+        });
     });
+
+
+
+    describe(' ADCore.auth tests  ', function() {
+
+        var reqNotAuth  = { session:{ authenticated:false } };
+        var reqAuth     = { session:{ authenticated:true  } };
+        var req         = { session:{} };
+        before(function(){
+
+
+        });
+
+
+        // isAuthenticated works properly
+        it(' -> isAuthenticated ', function() {
+
+            assert.equal( ADCore.auth.isAuthenticated(reqNotAuth), false, ' => detects not authenticated.');
+            assert.equal( ADCore.auth.isAuthenticated(reqAuth), true, ' => detects authenticated.');
+        });
+
+
+        // markAuthenticated works properly
+        it(' -> markAuthenticated ', function() {
+
+            var guid = 'test';
+            ADCore.auth.markAuthenticated(req, guid);
+
+            assert.equal( req.session.authenticated, true, ' => sets req.session.authenticated == true.');
+            assert.equal( ADCore.auth.isAuthenticated(req), true, ' => works fine with ADCore.auth.isAuthenticated().');
+            assert.equal( req.session.appdev.auth.guid, guid, ' => sets req.session.appdev.auth.guid.');
+        });
+
+
+
+        // markNotAuthenticated works properly
+        it(' -> markNotAuthenticated ', function() {
+
+            ADCore.auth.markNotAuthenticated(req);
+
+            assert.equal( req.session.authenticated, false, ' => sets req.session.authenticated == false.');
+            assert.equal( ADCore.auth.isAuthenticated(req), false, ' => works fine with ADCore.auth.isAuthenticated().');
+        });
+
+    });
+
+
+
+    describe(' ADCore.auth.local tests  ', function() {
+
+        var reqNotAuth  = { session:{ authenticated:false } };
+        var reqAuth     = { session:{ authenticated:true  } };
+        var req         = { session:{} };
+        before(function(){
+
+
+        });
+
+
+        // local.isAuthenticated works properly
+        it(' -> local.isAuthenticated ', function() {
+////TODO: <2014/1/24> Johnny : Implement a Local Auth option
+            assert.equal( false, false, ' => detects not authenticated.');
+
+        });
+
+
+
+    });
+
 
 
 
@@ -134,12 +204,12 @@ describe('test api/services/ADCore.js :', function () {
         var reqNoPerm     = null;
 
         var viewer_with_perm = {
-            hasPermission:function() { return true }
+            hasPermission:function() { return true; }
         };
 
         var viewer_no_perm = {
-            hasPermision:function() { return false }
-        }
+            hasPermision:function() { return false; }
+        };
 
 
         var resExpectingError = null;
@@ -159,12 +229,12 @@ describe('test api/services/ADCore.js :', function () {
             reqWithPerm = $.extend({}, mockObjects.reqAuthenticated);
             reqWithPerm.session.appdev = {
                 user:viewer_with_perm
-            }
+            };
 
             reqNoPerm = $.extend({}, mockObjects.reqAuthenticated);
             reqNoPerm.session.appdev = {
                 user:viewer_no_perm
-            }
+            };
 
             resExpectingError = $.extend({}, mockObjects.resExpectingError);
             resNoError = $.extend({}, mockObjects.resNoError);
@@ -174,7 +244,7 @@ describe('test api/services/ADCore.js :', function () {
 
 
             hasPermission = ADCore.hasPermission;
-        })
+        });
 
 /*
         // Missing Viewers should fail
@@ -192,13 +262,13 @@ describe('test api/services/ADCore.js :', function () {
         // viewers with no permission should fail
         it(' -> users without permission should fail ', function() {
             hasPermission(reqNoPerm, resExpectingError, noNext, 'test');
-        })
+        });
 
 */
         // viewers with permission should pass
         it(' -> users with permission should pass ', function() {
             hasPermission(reqWithPerm, resNoError, yesNext, 'test');
-        })
+        });
 
 
     });
@@ -229,8 +299,8 @@ describe('test api/services/ADCore.js :', function () {
             })
             .fail(function(err){
                 done(err);
-            })
-        })
+            });
+        });
 
 
         // Our Service exists
@@ -253,4 +323,4 @@ describe('test api/services/ADCore.js :', function () {
 
     });
 
-})
+});
