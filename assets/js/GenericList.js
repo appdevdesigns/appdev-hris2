@@ -75,9 +75,22 @@ function(){
 
         },
 
-		resize: function(height, mastheadHeight) {
+		resize: function(height) {
+		    // the height of our list should =
+		    // given height
+		    // - height of our mastHead
+		    // - 5px buffer between mastHead and list
+		    // - 15px margin on bottom
 
-			this.element.find('.hris-nav-list').css("height", height-mastheadHeight + "px");
+		    this.element.find('.genlist-widget-inner').css("height", height+'px');
+
+		    var mastheadHeight = this.element.find(".hris-widget-masthead").outerHeight(true);
+
+			this.element.find('.hris-nav-list').css("height", (height -mastheadHeight -5 -15) + "px");
+
+			// now we apply a padding to our widget container so that the list drops below the masthead
+			this.element.find(".genlist-widget-inner")
+			    .css("padding-top", (mastheadHeight+5) + "px");
 
         },
 

@@ -38,11 +38,13 @@ function(){
             AD.comm.hub.subscribe('opsportal.resize', function (key, data) {
                 self.element.css("height", data.height + "px");
 
-				var mastheadHeight = self.element.find(".hris-widget-masthead").outerHeight(true);
-				self.list.resize(data.height, mastheadHeight);
-				
-				self.element.find(".hris-widget-inner").css("padding-top", (mastheadHeight+5) + "px");
-				
+                // the height of our list should be the height of our portal - height of our bottom buttons
+
+				var buttonHeight = self.element.find(".hris-widget-nav-sub").outerHeight(true);
+				self.list.resize(data.height - buttonHeight);
+
+//				self.element.find(".hris-widget-inner").css("padding-top", (mastheadHeight+5) + "px");
+
             });
 
 

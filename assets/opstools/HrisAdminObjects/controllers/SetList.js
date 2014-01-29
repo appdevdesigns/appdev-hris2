@@ -48,12 +48,14 @@ function(){
 
             // listen for resize notifications
             AD.comm.hub.subscribe('opsportal.resize', function (key, data) {
+                // this is a half height list:
+                // so at most our list should take up:
                 self.element.css("height", (data.height/2) + "px");
 				//self.element.find('.hris-nav-list').css("height", data.height/2 + "px");
-				var mastheadHeight = self.element.find(".hris-widget-masthead").outerHeight(true);
-				self.list.resize(data.height/2, mastheadHeight);
-				
-				self.element.find(".hris-widget-inner").css("padding-top", (mastheadHeight+5) + "px");
+//				var mastheadHeight = self.element.find(".hris-widget-masthead").outerHeight(true);
+				self.list.resize(data.height/2);
+
+//				self.element.find(".hris-widget-inner").css("padding-top", (mastheadHeight+5) + "px");
             });
 
         },
