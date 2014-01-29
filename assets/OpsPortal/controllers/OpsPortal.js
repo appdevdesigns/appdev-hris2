@@ -67,7 +67,7 @@ function(){
             var newHeight = $(window).height()  - this.element.find(".apd-portal-container-masthead").outerHeight(true);
 
             // notify of a resize action.
-            AD.comm.hub.publish('opsportal.resize', { height: newHeight });
+            AD.comm.hub.publish('opsportal.resize', { height: newHeight-1 });
         },
 
 
