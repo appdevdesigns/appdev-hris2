@@ -97,9 +97,19 @@ module.exports.routes = {
   , 'get /site/config/data.js'      : 'ADCoreController.configData'
   , 'get /site/labels/:context'     : 'ADCoreController.labelConfigFile'
   , 'get /site/labels/:context/*'   : 'ADCoreController.labelConfigFile'
+  , 'get /site/login'               : 'ADCoreController.login'
+  , 'get /site/logout'              : 'ADCoreController.logout'
 
+
+  //// for Development only, remove in Production:
+  , 'get /node_modules/**' : 'ADCoreController.testingFiles'
 
   , 'get /opsportal/requirements.js': 'OpsPortalController.requirements'
+
+
+
+
+
 
 };
 

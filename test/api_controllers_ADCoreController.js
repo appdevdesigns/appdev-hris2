@@ -14,7 +14,7 @@ describe('test api/controllers/ADCoreController.js :', function () {
 
     before(function(done){
 
-        this.timeout(15000);
+        this.timeout(50000);
 
         var initDone = ADUtil.testingDBInit({
             models:[],
@@ -26,7 +26,7 @@ describe('test api/controllers/ADCoreController.js :', function () {
         })
         .fail(function(err){
             done(err);
-        })
+        });
     });
 
 
@@ -35,7 +35,7 @@ describe('test api/controllers/ADCoreController.js :', function () {
 
         // Our Controller exists
         it(' -> Our Controller is loaded ', function() {
-            assert.isDefined( sails.controllers.adcore,  ' => sails found our ADCoreController')
+            assert.isDefined( sails.controllers.adcore,  ' => sails found our ADCoreController');
         });
 
 
@@ -43,9 +43,10 @@ describe('test api/controllers/ADCoreController.js :', function () {
         it(' -> Our expected Services ', function() {
             assert.isDefined( sails.controllers.adcore.configData,  ' => sails found our configData()');
             assert.isDefined( sails.controllers.adcore.labelConfigFile,  ' => sails found our labelConfigFile()');
+            assert.isDefined( sails.controllers.adcore.login,  ' => sails found our login()');
+            assert.isDefined( sails.controllers.adcore.logout,  ' => sails found our logout()');
         });
 
     });
 
-
-})
+});
