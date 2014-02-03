@@ -9,11 +9,6 @@ steal(
 function(){
 
 
-
-            //// LEFT OFF:
-            //// - refactor HrisUI -> HrisAdminObjects with naming convention
-
-
     // Namespacing conventions:
     // AD.controllers.opstools.[Tool].Tool  --> main controller for tool
     // AD.controllers.opstools.[Tool].[controller] --> sub controllers for tool
@@ -21,18 +16,23 @@ function(){
 
     if (typeof AD.controllers.opstools == 'undefined') AD.controllers.opstools = {};
     if (typeof AD.controllers.opstools.HrisAdminObjects == 'undefined') AD.controllers.opstools.HrisAdminObjects = {};
-    AD.controllers.opstools.HrisAdminObjects.Tool = can.Control.extend({
+    AD.controllers.opstools.HrisAdminObjects.Tool = AD.classes.opsportal.OpsTool.extend({
 
         init: function( element, options ) {
             var self = this;
-            this.options = AD.defaults({
+            options = AD.defaults({
                     templateDOM: 'opstools/HrisAdminObjects/views/HrisAdminObjects/HrisAdminObjects.ejs',
+                    resize_notification: 'hrisadminobjects.resize',
                     tool:null   // the parent opsPortal Tool() object
             }, options);
+            this.options = options;
+
+            // Call parent init
+            AD.classes.opsportal.OpsTool.prototype.init.apply(this, arguments);
 
             this.dataSource = this.options.dataSource; // AD.models.Projects;
 
-            this.shouldUpdateUI = true;     // we have not updated our UI for the work area yet.
+//            this.shouldUpdateUI = true;     // we have not updated our UI for the work area yet.
 
             this.initDOM();
 
@@ -71,7 +71,7 @@ function(){
         },
 
 
-
+/*
         needsUpdate: function() {
             // called by containing ops portal Tool() object when a new
             // has been issued.
@@ -95,7 +95,7 @@ function(){
 
         },
 
-
+*/
 
         '.ad-item-add click': function($el, ev) {
 
