@@ -5,7 +5,8 @@ steal(
         'OpsPortal/portal-scratch.css',
         'OpsPortal/controllers/MenuList.js',
         'OpsPortal/controllers/WorkArea.js',
-
+        'OpsPortal/classes/OpsTool.js'
+).then(
         'opsportal/requirements.js'
 ).then(
 //        'appdev/widgets/ad_delete_ios/ad_delete_ios.js',

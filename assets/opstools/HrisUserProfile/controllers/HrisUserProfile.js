@@ -10,17 +10,19 @@ function(){
 
     if (typeof AD.controllers.opstools == 'undefined') AD.controllers.opstools = {};
     if (typeof AD.controllers.opstools.HrisUserProfile == 'undefined') AD.controllers.opstools.HrisUserProfile = {};
-    AD.controllers.opstools.HrisUserProfile.Tool = AD.classes.UIController.extend({
+    AD.controllers.opstools.HrisUserProfile.Tool = AD.classes.opsportal.OpsTool.extend({
 
 
         init: function (element, options) {
             var self = this;
-            this.options = AD.defaults({
+            options = AD.defaults({
                     templateDOM: 'opstools/HRISUserProfile/views/HrisUserProfile/HrisUserProfile.ejs',
+                    resize_notification: 'hrisuserprofile.resize'
             }, options);
+            this.options =  options;
 
             // Call parent init
-            AD.classes.UIController.prototype.init.apply(this, arguments);
+            AD.classes.opsportal.OpsTool.prototype.init.apply(this, arguments);
             //this._super.apply(this, arguments);
 
 
