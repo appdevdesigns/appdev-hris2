@@ -30,19 +30,7 @@ module.exports = {
   // Fixture Data:
   // Use this for initial design and testing
   , config:function(req, res) {
-/*
-      var data = {
-           areas:[
-                  { icon:'fa-user', key:'profile', label:'Profile'},
-                  { icon:'fa-wrench', key:'hradmin', label:'HR Admin'},
-                  { icon:'fa-question', key:'help', label:'Help'}
 
-           ],
-           tools:[
-                  { area:'hradmin', controller:'HrisAdminObjects', label:'Configure Objects'},
-           ]
-        };
-*/
       ADCore.comm.success(res, res.appdev.opsportalconfig);
   }
 

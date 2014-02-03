@@ -80,13 +80,17 @@ function processTool( areaHash, tools, user, area, tool ) {
             // once we return true, we don't have to process any more.
             // add area & tool to our list.
 
+//// TODO: change the isDefault to lookup a user's last accessed
+//// area/tool and make those the default
+
+
             // if area not already added then add it
             if (!areaHash[area.key]) {
                 var areaInfo = {
                         icon: area.icon,
                         key: area.key,
                         label: area.label,
-                        'default':area['default'] || false
+                        isDefault:area.isDefault || false
                 }
                 areaHash[area.key] = areaInfo;
             }
