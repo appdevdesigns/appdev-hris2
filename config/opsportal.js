@@ -10,6 +10,7 @@ module.exports.opsportal = {
 
   // list out all the possible permissions listed by
   permissions: {
+    'hris.profile' : 'this user can access their individual user profile',
     'hrisadmin.objects':'this user has permission to define/redefine new objects to track in HRIS.'
   },
 
@@ -31,7 +32,7 @@ module.exports.opsportal = {
 
           label:'Profile',  : the label that is displayed (will be translated)
 
-          default: true,    : consider this the default area to display when
+          isDefault: true,  : consider this the default area to display when
                               portal is loaded.
 
           tools:[           : which installed tools reside in this area
@@ -45,7 +46,7 @@ module.exports.opsportal = {
                   label:'text',         : The label displayed for this tool
 
 
-                  default:true,         : consider this the default tool in an
+                  isDefault:true,       : consider this the default tool in an
                                           area to display. (default : false)
 
 
@@ -69,20 +70,29 @@ module.exports.opsportal = {
           icon:'fa-user',
           key:'profile',
           label:'Profile',
-          tools:[]
+          tools:[{
+              // Hris User Profile Tool
+              controller:'HrisUserProfile',
+              label:'Profile',
+              isDefault: true,
+              permissions:[
+                  'hris.profile'
+                  , 'developer'
+              ]
+          }]
       },
       {
           // HR Admin Tools
           icon:'fa-wrench',
           key:'hradmin',
           label:'HR Admin',
-          'default': true,
+          isDefault: true,
           tools:[
               {
                   // Hris Admin Objects
                   controller:'HrisAdminObjects',
                   label:'Configure Objects',
-                  'default': true,
+                  isDefault: true,
                   permissions:[
                       'hrisadmin.objects'
                       , 'developer'

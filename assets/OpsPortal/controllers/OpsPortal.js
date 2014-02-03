@@ -36,9 +36,26 @@ function(){
             // make sure we resize our display to the document/window
             var sizeContent = function () {
                 self.resize();
-            }
+            };
             $(document).ready(sizeContent);
             $(window).resize(sizeContent);
+
+
+
+            // OK, one of the problems with resizing our tools comes when
+            // they are currently not displayed.  Some widgets (GenLists.js)
+            // need to evaluate their layout based upon the size of their
+            // existing headers.  But when that header isn't displayed, the
+            // reported size is 0.
+            // These tools need a chance to resize again once they are displayed
+            // So, those tools being 'opsportal.area.show'n need to resize
+            // now that they are displayed.
+            // This will force a global resize which will do the trick.
+            AD.comm.hub.subscribe('opsportal.area.show', function (key, data) {
+
+                setTimeout(sizeContent,4);
+
+            });
 
         },
 
@@ -67,6 +84,7 @@ function(){
             var newHeight = $(window).height()  - this.element.find(".apd-portal-container-masthead").outerHeight(true);
 
             // notify of a resize action.
+            // -1px to ensure sub tools don't cause page scrolling.
             AD.comm.hub.publish('opsportal.resize', { height: newHeight-1 });
         },
 
@@ -81,21 +99,31 @@ function(){
                     // what to do here?
                 } else {
 
+                    var defaultArea  = {};
+
+                    // choose 1st area as default just in case none specified:
+                    if (data.areas[0]) {
+                        defaultArea = data.areas[0];
+                    }
+
                     // create each area
                     for (var a=0; a < data.areas.length; a++) {
                         AD.comm.hub.publish('opsportal.area.new', data.areas[a]);
+                        if(data.areas[a].isDefault) {
+                            defaultArea = data.areas[a];
+                        }
                     }
 
 
-                    var defaultTool = null;
+                    var defaultTool = {};
 
                     // assign 1st tool as our default to show
-                    if (data.tools[0]) defaultTool = data.tools[0];
+                    if (data.tools[0]) defaultTool[data.tools[0].area] = data.tools[0];
 
                     // create each tool
                     for (var t=0; t < data.tools.length; t++) {
                         AD.comm.hub.publish('opsportal.tool.new', data.tools[t]);
-                        if (data.tools[t].isDefault) defaultTool = data.tools[t];
+                        if (data.tools[t].isDefault) defaultTool[data.tools[t].area] = data.tools[t];
                     }
 
 
@@ -104,12 +132,15 @@ function(){
                     // make sure they all have resize()ed
                     self.resize();
 
+                    // notify of our default Area:
+                    // there can be only 1 ...
+                    AD.comm.hub.publish('opsportal.area.show', {area:defaultArea.key});
 
-                    // display our default tool
-                    if (defaultTool) {
-                        AD.comm.hub.publish('opsportal.area.show', {area:defaultTool.area});
-                        AD.comm.hub.publish('opsportal.tool.show', {tool:defaultTool.controller});
+                    // now notify all our default tools
+                    for (var t in defaultTool) {
+                        AD.comm.hub.publish('opsportal.tool.show', {tool:defaultTool[t].controller});
                     }
+
                 }
 
             });

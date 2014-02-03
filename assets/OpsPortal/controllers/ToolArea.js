@@ -42,6 +42,21 @@ function(){
                 // if this tool is for my area, then create it.
                 if (self.options.key == data.area) {
                     self.element.show();
+/*
+                    // for each of our tools
+                    for (var t in self.listTools) {
+                        var tool = self.listTools[t];
+
+                        // if it is the active tool
+                        if (tool.isActive()) {
+
+                            // recall it's resize()
+                            // ?? do we remember the last resize value and
+                            //    send that in here?
+                            tool.resize();
+                        }
+                    }
+*/
                 } else {
                     self.element.hide();
                 }
@@ -69,6 +84,7 @@ function(){
             // attach the ToolArea controller to the new div
             var newTool = new AD.controllers.OpsPortal.Tool(this.element.find('.'+divKey), {
                 key: tool.controller,
+                areaKey:this.options.key,
                 data:tool
             });
 

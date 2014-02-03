@@ -27,9 +27,12 @@ function(){
             var self = this;
             this.options = AD.defaults({
                     templateDOM: 'opstools/HrisAdminObjects/views/HrisAdminObjects/HrisAdminObjects.ejs',
+                    tool:null   // the parent opsPortal Tool() object
             }, options);
 
             this.dataSource = this.options.dataSource; // AD.models.Projects;
+
+            this.shouldUpdateUI = true;     // we have not updated our UI for the work area yet.
 
             this.initDOM();
 
@@ -42,9 +45,9 @@ function(){
 
 			this.element.find('.tt').tooltip(options);
 			this.element.find('.tt-field').tooltip({placement: 'left'});
-			
+
 			this.element.find('.po-help').popover(options);
-			this.element.find('.po').popover({ 
+			this.element.find('.po').popover({
 			    html : true,
 			    title: function() {
 			      return self.element.find('.po-title').html();
@@ -53,8 +56,8 @@ function(){
 			      return self.element.find('.po-content').html();
 			    }
 			});
-			
-			
+
+
         },
 
 
@@ -64,6 +67,31 @@ function(){
         initDOM: function() {
 
             this.element.html(can.view(this.options.templateDOM, {} ));
+
+        },
+
+
+
+        needsUpdate: function() {
+            // called by containing ops portal Tool() object when a new
+            // has been issued.
+            this.shouldUpdateUI = true;
+        },
+
+
+
+        resize: function( data ) {
+            // called by containing ops portal Tool() object when a tool is
+            // shown to the user.
+
+            // more importantly it keeps a tool from resizing when it isn't
+            // shown, which can introduce css mistakes from false height()
+            // values.
+
+            if (this.shouldUpdateUI) {
+                AD.comm.hub.publish('hrisadminobjects.resize', data);
+                this.shouldUpdateUI = false;
+            }
 
         },
 
