@@ -93,7 +93,11 @@ function(){
 
         requestConfiguration: function() {
             var self = this;
-
+//// For debugging:
+AD.comm.hub.subscribe('**', function(key, data){
+    console.log('pub:'+key);
+    console.log(data);
+});
             AD.comm.service.get({ url:'/opsportal/config' }, function (err, data) {
 
                 if (err) {
@@ -139,7 +143,10 @@ function(){
 
                     // now notify all our default tools
                     for (var t in defaultTool) {
-                        AD.comm.hub.publish('opsportal.tool.show', {tool:defaultTool[t].controller});
+                        AD.comm.hub.publish('opsportal.tool.show', {
+                            area:defaultTool[t].area,
+                            tool:defaultTool[t].controller
+                        });
                     }
 
                 }

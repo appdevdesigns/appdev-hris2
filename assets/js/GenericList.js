@@ -2,6 +2,7 @@
 steal(
         // List your Controller's dependencies here:
         'appdev',
+        'styles/genericList.css',
 //        'HrisUI/models/Projects.js',
 //        'appdev/widgets/ad_delete_ios/ad_delete_ios.js',
 //        'HrisUI/views/ObjectList/ObjectList.ejs',
@@ -13,7 +14,7 @@ function(){
 
 
         init: function( element, options ) {
-            var self = this;
+//            var self = this;
             this.options = AD.defaults({
                     dom_listarea:'.genlist-list',
                     notification_selected:null,
@@ -21,6 +22,7 @@ function(){
                     templateItem: 'js/GenListItem.ejs',
                     title: 'List',
                     onAdd:null,
+                    onEdit:null,
                     description:null
             }, options);
 
@@ -73,6 +75,13 @@ function(){
                 this.button.add.hide();
             }
 
+            this.button.edit = this.element.find('.genlist-button-edit');
+            if (this.options.onEdit) {
+                this.button.edit.click( this.options.onEdit );
+            } else {
+                this.button.edit.hide();
+            }
+
         },
 
 		resize: function(height) {
@@ -110,24 +119,26 @@ function(){
 
             //// now on each model displayed, listen to it's destroyed event
             // when destroyed, .remove() this domFrag.
-            var bindThis = function(model, frag) {
+            if (item.bind) {
+                var bindThis = function(model, frag) {
 
-                var delThis = function (ev, attr){
-                    if (attr == 'destroyed') {
-                        self.element.find('[gen-list-del-id='+model.id+']').remove();
-                    }
-                }
-                model.bind('change',delThis);
+                    var delThis = function (ev, attr){
+                        if (attr == 'destroyed') {
+                            self.element.find('[gen-list-del-id='+model.id+']').remove();
+                        }
+                    };
+                    model.bind('change',delThis);
 
-            };
-            bindThis(item, domFrag);
+                };
+                bindThis(item, domFrag);
+            }
 
         },
 
 
 
         loadItems: function() {
-            var self = this;
+ //           var self = this;
 
             var listArea = this.element.find(this.options.dom_listarea);
 
@@ -145,13 +156,13 @@ function(){
         'li.genlist-item click': function($el, ev) {
 
             //  hris-active hris-active-object
-            this.element.find('.hris-active').each(function(index, item) {
-                $(item).removeClass('hris-active hris-active-object');
-            })
+            this.element.find('.genlist-active').each(function(index, item) {
+                $(item).removeClass('genlist-active genlist-active-object');
+            });
 
             // add the selected class to this li
-            $el.addClass('hris-active');
-            $el.addClass('hris-active-object');
+            $el.addClass('genlist-active');
+            $el.addClass('genlist-active-object');
 
             // send a message
             if (this.options.notification_selected) {
