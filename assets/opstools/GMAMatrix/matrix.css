@@ -218,10 +218,10 @@ div.loading {
     margin: 0;
     overflow-y: auto;
     padding: 0;
-//    position: absolute;
+/*    position: absolute; */
     right: 0;
     top: 0;
-//    width: 100%;
+/*    width: 100%; */
 }
 
 .gmamatrix-stage .navbar-inner .row {

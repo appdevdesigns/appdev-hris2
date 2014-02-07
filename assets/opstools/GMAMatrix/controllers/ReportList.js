@@ -2,8 +2,6 @@
 steal(
         // List your Controller's dependencies here:
         'appdev',
-        'js/GenericList.js',
-        'opstools/GMAMatrix/classes/GMAReport.js',
 //        'opstools/GMAMatrix/models/Projects.js',
 //        'appdev/widgets/ad_delete_ios/ad_delete_ios.js',
 //        'opstools/GMAMatrix/views/ReportList/ReportList.ejs',
@@ -30,41 +28,14 @@ function(){
             this.dataSource = this.options.dataSource; // AD.models.Projects;
 
             this.initDOM();
-
-            AD.classes.gmamatrix.GMAReport.reports()
-            .then(function(list){
-                self.dataSource = list;
-                self.list.data(list);
-            })
-            .fail(function(err){
-                console.error(err);
-            });
-
-
-
-            // listen for resize notifications
-            AD.comm.hub.subscribe('gmamatrix.resize', function (key, data) {
-                self.element.css("height", data.height + "px");
-
-                self.list.resize(data.height);
-            });
         },
 
 
 
         initDOM: function () {
 
-//            this.element.html(can.view(this.options.templateDOM, {} ));
+            this.element.html(can.view(this.options.templateDOM, {} ));
 
-            // add in the GenericList to our report list div
-            this.list = new AD.controllers.GenericList(this.element, {
-                title:'Reports',
-                description: '<em>Reports</em> are the GMA nodes you are allowed to report statistics on.',
-//                dataSource:[],  //this.dataSource,
-                templateItem:'opstools/GMAMatrix/views/ReportList/item.ejs',
-                notification_selected:'gmamatrix.report.selected',
-//                onAdd:function() { self.addItem();  }
-            });
         },
 
 

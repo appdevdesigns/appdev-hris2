@@ -103,7 +103,7 @@ GMA.prototype.login = function (username, password) {
         function(next){
             if (self.isLoggedIn) {
                 self.logout()
-                .then(function(){ next() });
+                .then(function(){ next(); });
             } else {
                 next();
             }
@@ -160,8 +160,8 @@ GMA.prototype.login = function (username, password) {
         // Step 4: Get user info
         function(next){
             self.getUser()
-            .then(function(){ next() })
-            .fail(function(err){ next(err) });
+            .then(function(){ next(); })
+            .fail(function(err){ next(err); });
         }
 
     ], function(err){

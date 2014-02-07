@@ -7,18 +7,18 @@ function(){
     // Namespacing conventions:
     // AD.classes.[application].[Class]  --> Object
     if (typeof AD.classes.gmamatrix == 'undefined') AD.classes.gmamatrix = {};
-    AD.classes.gmamatrix.GMAReport = can.Construct.extend({
+    AD.classes.gmamatrix.GMAAssignment = can.Construct.extend({
 
-        reports:function(nodeId, cb) {
+        assignments:function(cb) {
             var dfd = AD.sal.Deferred();
 
-            AD.comm.service.get({ url:'/gmamatrix/reports', data:{ nodeId: nodeId }})
+            AD.comm.service.get({ url:'/gmamatrix/assignments' })
             .then(function(data){
 
-                // return an array of GMAReport instances:
+                // return an array of GMAAssignment instances:
                 var returnArry = [];
                 for (var i=0; i<data.length; i++){
-                    returnArry.push( new AD.classes.gmamatrix.GMAReport(data[i]));
+                    returnArry.push( new AD.classes.gmamatrix.GMAAssignment(data[i]));
                 }
 
                 //
@@ -37,11 +37,8 @@ function(){
         init: function( data ) {
             var self = this;
             data = AD.defaults({
-                reportId:-1,
                 nodeId:-1,
-                nodeName:'?nodeName?',
-                startDate:'yyyy-mm-dd',
-                endDate:'yyyy-mm-dd'
+                nodeName:'?nodeName?'
             }, data);
 
             for (var d in data) {
@@ -49,13 +46,13 @@ function(){
             }
 
             // keep track of the measurements associated with this report
-            this.measurements = null;
+            this.reports = null;
 
         },
 
 
         getID: function(){
-            return this.reportId;
+            return this.nodeId;
         },
 
 
@@ -66,23 +63,23 @@ function(){
         },
 
 
-        measurements:function() {
+        reports:function() {
             var self = this;
             var dfd = AD.sal.Deferred();
 
 
-            if (this.measurements == null) {
-                AD.classes.gmamatrix.GMAMeasurement.measurements( this.getID() )
-                .then(function(measurements) {
-                    self.measurements = measurements;
-                    dfd.resolve(measurements);
+            if (this.reports == null) {
+                AD.classes.gmamatrix.GMAReports.reports( this.getID() )
+                .then(function(reports) {
+                    self.reports = reports;
+                    dfd.resolve(reports);
                 })
                 .fail(function(err){
                     dfd.reject(err);
                 });
 
             } else {
-                dfd.resolve(this.measurements);
+                dfd.resolve(this.reports);
             }
             return dfd;
         }

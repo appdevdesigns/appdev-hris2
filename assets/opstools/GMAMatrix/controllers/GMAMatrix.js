@@ -4,7 +4,8 @@ steal(
         'appdev',
 //        'opstools/GMAMatrix/models/Projects.js',
         'appdev/widgets/ad_icon_busy/ad_icon_busy.js',
-        'opstools/GMAMatrix/controllers/ReportList.js',
+        'opstools/GMAMatrix/controllers/AssignmentList.js',
+        'opstools/GMAMatrix/controllers/GMAStage.js',
 //        'opstools/GMAMatrix/views/GMAMatrix/GMAMatrix.ejs',
 function(){
 
@@ -62,9 +63,11 @@ function(){
             });
 
             //// Attach the ReportList object
-            new AD.controllers.opstools.GMAMatrix.ReportList( this.element.find('.gmamatrix-report-chooser'));
+            new AD.controllers.opstools.GMAMatrix.AssignmentList( this.element.find('.gmamatrix-assignment-chooser'));
 
 
+            //// Attach the GMA Stage
+            new AD.controllers.opstools.GMAMatrix.GMAStage( this.element.find('.gmamatrix-stage'));
             /*
              // From initial GMA Matrix:
 
