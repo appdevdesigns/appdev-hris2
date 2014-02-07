@@ -1,0 +1,28 @@
+.genlist-list li {
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    padding: 0.75em 15px;
+    position: relative;
+}
+
+.genlist-list li.genlist-item {
+    opacity: 0.5;
+    transition: opacity 0.3s ease-out 0s;
+}
+
+.genlist-list li.genlist-item:hover {
+    opacity: 1;
+}
+
+.genlist-active.genlist-item, .genlist-active .hris-item-icon i {
+    color: #333333;
+    font-weight: bold;
+    opacity: 1 !important;
+}
+
+.genlist-active {
+    background-color: rgba(255, 255, 255, 0.65) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

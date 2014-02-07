@@ -22,6 +22,7 @@ function(){
             this.controller = null;
             this.sizeData = null;
             this.isActive = false;
+            this.isAreaActive = false;
 
 
             //// TODO: attach the controller here
@@ -38,6 +39,14 @@ function(){
 
                 // tell controller it needs to update it's display at some point
                 self.controller.needsUpdate();
+
+                // and if I'm active
+                if ((self.isAreaActive)
+                    && (self.isActive)) {
+
+                    // make sure my controller knows to resize();
+                    self.controller.resize(data);
+                }
             });
 
             AD.comm.hub.subscribe('opsportal.area.show', function(message, data){
@@ -54,12 +63,18 @@ function(){
             // if it is our area
             if (this.options.areaKey == data.area) {
 
+                this.isAreaActive = true;
+
                 // and I'm active
                 if (this.isActive) {
 
                     // make sure my controller knows to resize();
                     this.controller.resize(this.sizeData);
                 }
+
+            } else {
+
+                this.isAreaActive = false;
             }
         },
 
@@ -74,27 +89,32 @@ function(){
 
 
         resize:function(){
-
-            this.controller.resize();
+            if (this.isActive) {
+                this.controller.resize();
+            }
         },
 
 
 
         toolShow:function(data) {
 
-            if (data.tool == this.options.key) {
+            if (this.options.areaKey == data.area) {
 
-                if(!this.isActive) {
-                    this.isActive = true;
-                    this.element.show();
-                    this.controller.resize(this.sizeData);
-                }
+                if (data.tool == this.options.key) {
 
-            } else {
+                    if(!this.isActive) {
+                        this.isActive = true;
+                        this.element.show();
+                        this.controller.resize(this.sizeData);
+                    }
 
-                if (this.isActive){
-                    this.isActive = false;
-                    this.element.hide();
+                } else {
+
+                    if (this.isActive){
+                        this.isActive = false;
+                        this.element.hide();
+                    }
+
                 }
             }
         },
