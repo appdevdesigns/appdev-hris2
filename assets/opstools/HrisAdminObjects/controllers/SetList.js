@@ -47,7 +47,7 @@ function(){
 
 
             // listen for resize notifications
-            AD.comm.hub.subscribe('opsportal.resize', function (key, data) {
+            AD.comm.hub.subscribe('hrisadminobjects.resize', function (key, data) {
                 // this is a half height list:
                 // so at most our list should take up:
                 self.element.css("height", (data.height/2) + "px");
