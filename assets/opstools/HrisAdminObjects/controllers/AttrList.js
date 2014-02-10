@@ -28,7 +28,7 @@ function(){
 
 
             // listen for resize notifications
-            AD.comm.hub.subscribe('opsportal.resize', function (key, data) {
+            AD.comm.hub.subscribe('hrisadminobjects.resize', function (key, data) {
 
 //				self.element.css("height", (data.height/2) + "px");
 

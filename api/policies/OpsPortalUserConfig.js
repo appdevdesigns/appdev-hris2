@@ -91,7 +91,7 @@ function processTool( areaHash, tools, user, area, tool ) {
                         key: area.key,
                         label: area.label,
                         isDefault:area.isDefault || false
-                }
+                };
                 areaHash[area.key] = areaInfo;
             }
 
@@ -99,7 +99,8 @@ function processTool( areaHash, tools, user, area, tool ) {
             var toolInfo = {
                     area:area.key,
                     controller:tool.controller,
-                    label:tool.label
+                    label:tool.label,
+                    isDefault:tool.isDefault
             }
             tools.push(toolInfo);
             break;
