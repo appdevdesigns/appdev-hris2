@@ -2,6 +2,7 @@
 steal(
         // List your Controller's dependencies here:
         'appdev',
+        'opstools/GMAMatrix/classes/GMAReport.js',
 function(){
 
     // Namespacing conventions:
@@ -46,7 +47,8 @@ function(){
             }
 
             // keep track of the measurements associated with this report
-            this.reports = null;
+            this.data = {};
+            this.data.reports = null;
 
         },
 
@@ -68,10 +70,10 @@ function(){
             var dfd = AD.sal.Deferred();
 
 
-            if (this.reports == null) {
-                AD.classes.gmamatrix.GMAReports.reports( this.getID() )
+            if (this.data.reports == null) {
+                AD.classes.gmamatrix.GMAReport.reports( this.getID() )
                 .then(function(reports) {
-                    self.reports = reports;
+                    self.data.reports = reports;
                     dfd.resolve(reports);
                 })
                 .fail(function(err){
@@ -79,7 +81,7 @@ function(){
                 });
 
             } else {
-                dfd.resolve(this.reports);
+                dfd.resolve(this.data.reports);
             }
             return dfd;
         }

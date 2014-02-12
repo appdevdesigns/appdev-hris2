@@ -3,6 +3,7 @@ steal(
         // List your Controller's dependencies here:
         'appdev',
         'opstools/GMAMatrix/controllers/ReportList.js',
+        'opstools/GMAMatrix/controllers/StrategyList.js',
 //        'appdev/widgets/ad_delete_ios/ad_delete_ios.js',
 //        'opstools/GMAMatrix/views/GMAStage/GMAStage.ejs',
 function(){
@@ -30,6 +31,9 @@ function(){
             this.strategy = null;
 
 
+            this.locations = null;
+
+
             this.initDOM();
 
             this.setupComponents();
@@ -44,9 +48,13 @@ function(){
                 self.selectedAssignment(data.model);
             });
 
-
             AD.comm.hub.subscribe('gmamatrix.report.selected', function(key, data){
-                self.selectedReport(data.model);
+                self.selectedReport(data.report);
+            });
+
+
+            AD.comm.hub.subscribe('gmamatrix.strategy.selected', function(key, data){
+                self.selectedStrategy(data.strategy);
             });
         },
 
@@ -56,8 +64,49 @@ function(){
 
             this.element.html(can.view(this.options.templateDOM, {} ));
 
-            new AD.controllers.opstools.GMAMatrix.ReportList(this.element.find('.gmamatrix-report-reportlist'));
+            this.reportList = new AD.controllers.opstools.GMAMatrix.ReportList(this.element.find('.gmamatrix-report-reportlist'));
+            this.strategyList = new AD.controllers.opstools.GMAMatrix.StrategyList(this.element.find('.gmamatrix-report-strategylist'));
 
+            this.locations = this.element.find('.gmamatrix-measurement-location');
+            this.locations.droppable({disable:true});
+        },
+
+
+
+        loadMeasurements: function() {
+            if (this.strategy) {
+
+
+                // if our strategy exists in our measurements
+                if (this.measurements[this.strategy.id]) {
+
+                    // if there are any measurements that don't have any
+                    // placements?
+                    var noPlacements = this.report.measurementsWithoutPlacements(this.strategy.id);
+                    if (noPlacements.length > 0) {
+
+                        // oops ... well switch to placement mode:
+                        // areas droppable
+                        this.locations.enable();
+
+                        // list noPlacements in column
+                        AD.comm.hub.publish('gmamatrix.noplacements.list', {list:noPlacements});
+
+                    } else {
+
+
+                        // ok, we are ready to show em:
+
+                    }
+
+                } else {
+
+                    console.error('selected strategy ['+this.strategy+'] not in our measurements');
+                    console.log(this.measurements);
+
+                }// end if
+
+            }
         },
 
 
@@ -71,7 +120,7 @@ function(){
 
             // a new Assignment was selected, so reset our report/strategy
             this.report = null;
-            this.strategy = null;
+//            this.strategy = null;  // let's keep strategy and reuse
 
         },
 
@@ -81,14 +130,13 @@ function(){
             var self = this;
 
             this.stageInstructions.hide();
-            this.stageReport.hide();
-            this.stageLoading.show();
+            this.stageReport.show();
+//            this.stageLoading.show();
 
+            // store the selected report
             this.report = report;
-            this.measurements = null;
-            this.placements = null;
 
-
+            // we load the measurements and placement values
             var measurementsLoaded = report.measurements();
             var placementsLoaded = report.placements();
             $.when(measurementsLoaded, placementsLoaded)
@@ -97,15 +145,43 @@ function(){
                 self.measurements = measurements;
                 self.placements = placements;
 
+                // compile the strategies for the measurements on this report
+                // post a 'gmamatrix.strategies.loaded' notification
+                var strategies = [];
+                for (var s in measurements){
+                    strategies.push(s);
+                }
+
+                AD.comm.hub.publish('gmamatrix.strategies.loaded', {strategies:strategies});
+
+
+/*                // if a strategy was previously selected
                 if (self.strategy) {
 
-                    // Now lets organize our Measurements
-console.warn('TODO: organize our Measurements!!!');
+                   self.loadMeasurements();
+
                 }
+*/
             })
             .fail(function(err){
                 console.error(err);
             });
+
+        },
+
+
+
+        selectedStrategy: function(strategy) {
+
+            this.stageInstructions.hide();
+            this.stageReport.show();
+            this.stageLoading.hide();
+
+            this.strategy = strategy;       // each report has a strategy
+
+            // by this point, we should already have measurements
+            // and placements loaded, so now show the Measurements
+            this.loadMeasurements();
 
         },
 

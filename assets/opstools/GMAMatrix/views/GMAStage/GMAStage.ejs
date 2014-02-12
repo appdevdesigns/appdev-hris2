@@ -23,6 +23,7 @@ data.labels.getLabel = function(key) {
                     <div class="row"> 
                       <div class=" col-md-4">
                         <div class='gmamatrix-report-reportlist'></div>
+                        <div class='gmamatrix-report-strategylist'></div>
                         <!-- <div id="language-switcher"></div> -->
                       </div>  
                       <div class=" col-md-7">
@@ -56,9 +57,9 @@ data.labels.getLabel = function(key) {
                   <tbody>
                     <tr class="row-win">
                         <th><%= data.labels.getLabel('[WIN]') %></th>
-                        <td id="win-faith"></td>
-                        <td id="win-fruits"></td>
-                        <td id="outcome-outcome" rowspan="3"></td>
+                        <td id="win-faith" class="gmamatrix-measurement-location" ></td>
+                        <td id="win-fruits" class="gmamatrix-measurement-location" ></td>
+                        <td id="outcome-outcome" rowspan="3" class="gmamatrix-measurement-location" ></td>
                         <td id="col-questions" rowspan="3">
                             <div class="content"></div>
                             <div class="submitting">
@@ -81,15 +82,15 @@ data.labels.getLabel = function(key) {
                     </tr>
                     <tr class="row-build">
                         <th><%= data.labels.getLabel('[BUILD]') %></th>
-                        <td id="build-faith"></td>
-                        <td id="build-fruits"></td>
+                        <td id="build-faith" class="gmamatrix-measurement-location" ></td>
+                        <td id="build-fruits" class="gmamatrix-measurement-location" ></td>
                         <!-- td#col-outcome continued -->
                         <!-- td#col-questions continued -->
                     </tr>
                     <tr class="row-send">
                         <th><%= data.labels.getLabel('[SEND]') %></th>
-                        <td id="send-faith"></td>
-                        <td id="send-fruits"></td>
+                        <td id="send-faith" class="gmamatrix-measurement-location" ></td>
+                        <td id="send-fruits" class="gmamatrix-measurement-location" ></td>
                         <!-- td#col-outcome continued -->
                         <!-- td#col-questions continued -->
                     </tr>
@@ -101,7 +102,7 @@ data.labels.getLabel = function(key) {
             
                     <tr class="row-extra">
                         <th><%= data.labels.getLabel('[Extra]') %></th>
-                        <td id="extra-extra" colspan="3"></td>
+                        <td id="extra-extra" colspan="3" class="gmamatrix-measurement-location" ></td>
                     </tr>
                   </tbody>
                 </table>

@@ -148,4 +148,36 @@ module.exports = {
   }
 
 
+
+  // url:get  /gmamatrix/placements?reportId=x
+  , placements:function(req, res) {
+
+      var data = [
+          {
+              id:1,
+              reportId:1,
+              measurementId:1,
+              matrixLocation:'win-actions',
+              order:1
+          },
+          {
+              id:2,
+              reportId:1,
+              measurementId:2,
+              matrixLocation:'win-actions',
+              order:2
+          },
+          {
+              id:3,
+              reportId:1,
+              measurementId:3,
+              matrixLocation:'win-fruits',
+              order:1
+          }
+      ];
+
+      ADCore.comm.success(res, data);
+  }
+
+
 };

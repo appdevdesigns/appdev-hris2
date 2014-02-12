@@ -7,48 +7,34 @@ function(){
     // Namespacing conventions:
     // AD.classes.[application].[Class]  --> Object
     if (typeof AD.classes.gmamatrix == 'undefined') AD.classes.gmamatrix = {};
-    AD.classes.gmamatrix.GMAMeasurement = can.Construct.extend({
+    AD.classes.gmamatrix.GMAPlacement = can.Construct.extend({
 
 
-        measurements:function(reportID, cb) {
+        placements:function(reportID, cb) {
             var dfd = AD.sal.Deferred();
 
             var reportData = { reportID:reportID };
             AD.comm.service.get({
-                url:'/gmamatrix/measurements',
+                url:'/gmamatrix/placements',
                 data:reportData
             })
             .then(function(data){
 
                 /*
                  // data is in format:
-                    {
-                     'strategy Name 1': [
-                         { measurement 1},
-                         { measurement 2},
+                    [
+                         { placement 1},
+                         { placement 2},
                          ...
-                         { measurement N}
-                     ],
-                     'strategy Name 2': [
-                         { measurement 1},
-                         { measurement 2},
-                         ...
-                         { measurement N}
-                     ],
-
-                     }
+                         { placement N}
+                     ]
                  */
 
-                var returnData = {};
+                var returnData = [];
 
-                for (var d in data) {
-                    returnData[d] = [];
 
-                    var measurements = data[d];
-                    for (var i=0; i< measurements.length; i++ ) {
-                        returnData[d].push( new AD.classes.gmamatrix.GMAMeasurement(measurements[i]));
-                    }
-
+                for (var i=0; i< data.length; i++ ) {
+                    returnData.push( new AD.classes.gmamatrix.GMAPlacement(data[i]));
                 }
 
                 if (cb) cb(null, returnData);
@@ -66,13 +52,13 @@ function(){
 
 
         init: function( data ) {
-            var self = this;
+//            var self = this;
             data = AD.defaults({
+                id:1,
                 reportId:-1,
                 measurementId:-1,
-                measurementName:'?measurementName?',
-                measurementDescription:'?measurementDescription',
-                measurementValue:-1
+                matrixLocation:'??',
+                order:-1
             }, data);
 
             for (var d in data) {
@@ -86,7 +72,7 @@ function(){
 
 
         getID: function(){
-            return this.measurementId;
+            return this.id;
         },
 
 
@@ -94,6 +80,12 @@ function(){
         label: function() {
 
             return this.name;
+        },
+
+
+
+        location: function() {
+            return this.matrixLocation;
         },
 
 

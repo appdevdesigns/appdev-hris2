@@ -2,6 +2,8 @@
 steal(
         // List your Controller's dependencies here:
         'appdev',
+        'opstools/GMAMatrix/classes/GMAMeasurement.js',
+        'opstools/GMAMatrix/classes/GMAPlacement.js',
 function(){
 
     // Namespacing conventions:
@@ -48,8 +50,11 @@ function(){
                 this[d] = data[d];
             }
 
-            // keep track of the measurements associated with this report
-            this.measurements = null;
+            // keep track of the measurements & placements associated with
+            // this report
+            this.data = {};
+            this.data.measurements = null;
+            this.data.placements = null;
 
         },
 
@@ -71,10 +76,20 @@ function(){
             var dfd = AD.sal.Deferred();
 
 
-            if (this.measurements == null) {
+            if (this.data.measurements == null) {
                 AD.classes.gmamatrix.GMAMeasurement.measurements( this.getID() )
                 .then(function(measurements) {
-                    self.measurements = measurements;
+                    self.data.measurements = measurements;
+
+                    // store this report object in each Measurement object
+                    for (var s in measurements){
+                        var stratMeasurements = measurements[s];
+                        for (var i=0; i<stratMeasurements.length; i++) {
+                            stratMeasurements[i].setReport(self);
+                        }
+                    }
+
+
                     dfd.resolve(measurements);
                 })
                 .fail(function(err){
@@ -82,9 +97,58 @@ function(){
                 });
 
             } else {
-                dfd.resolve(this.measurements);
+                dfd.resolve(this.data.measurements);
             }
             return dfd;
+        },
+
+
+
+        placements:function() {
+            var self = this;
+            var dfd = AD.sal.Deferred();
+
+
+            if (this.data.placements == null) {
+                AD.classes.gmamatrix.GMAPlacement.placements( this.getID() )
+                .then(function(placements) {
+                    // store this as a lookup hash
+                    var entries = {
+                            // measurementID: { placement Object }
+                    };
+                    for(var p=0; p<placements.length; p++) {
+                        placements[p].setReport(self);
+                        entries[placements[p].measurementId] = placements[p];
+                    }
+                    self.data.placements = entries;
+                    dfd.resolve(placements);
+                })
+                .fail(function(err){
+                    dfd.reject(err);
+                });
+
+            } else {
+                dfd.resolve(this.data.placements);
+            }
+            return dfd;
+        },
+
+
+        measurementsWithoutPlacements:function(strategy) {
+            var list = this.data.measurements[strategy];
+            var listNotFound = [];
+
+            if (list) {
+
+                for(var i=0; i<list.length; i++) {
+                    if (!this.data.placements[ list[i].getID() ]) {
+                        listNotfound.push(list[i]);
+                    }
+                }
+            }
+
+            return listNotFound;
+
         }
 
 
