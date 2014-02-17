@@ -1,0 +1,50 @@
+/* =Bootstrap Overrides */
+.row { overflow: hidden; }
+
+.form-horizontal .form-group { margin-right: 0; margin-left: 0; }
+.tooltip, .popover { position: fixed; }
+.tooltip-inner { background-color: #333333; font-weight: bold; padding: 6px 12px; }
+.tooltip.top .tooltip-arrow, .tooltip.top-left .tooltip-arrow, .tooltip.top-right .tooltip-arrow { border-top-color: #333333; }
+.tooltip.right .tooltip-arrow { border-right-color: #333333; }
+.tooltip.left .tooltip-arrow { border-left-color: #333333; }
+.tooltip.bottom .tooltip-arrow, .tooltip.bottom-left .tooltip-arrow, .tooltip.bottom-right .tooltip-arrow { border-bottom-color: #333333; }
+.popover, .popover-title { background-color: #333333; color: #ffffff; }
+.popover-title { border-bottom: 1px solid #666666; }
+.popover.right .arrow, .popover.right .arrow:after { border-right-color: #333333; }
+.popover-content { line-height: 18px; }
+.modal-content { background-color: #f0f0f0; }
+.btn, .btn:hover, .btn:focus, a.btn, a.btn:hover, a.btn:visited { border-radius: 0 !important; color: #fff !important; border: 1px solid transparent !important;}
+
+/* =General Global Styles */
+html, body { height: 100% !important; margin: 0; padding: 0; /*overflow: hidden; overflow-x: hidden; overflow-y: hidden; */}
+body { font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif; color: #333; }
+a { color: #333333; text-decoration: none; opacity: 0.5; -webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; outline: 0; border: 0;}
+a:hover, a:visited { color: #333333; opacity: 1; outline: 0; border: 0;}
+div { position: relative; }
+
+/* =OpsPortal Margins, Padding, Dividers */
+.opsportal-nopadding { padding: 0 !important; }
+.opsportal-margin-top { margin-top: 15px; }
+.opsportal-margin-top-2x { margin-top: 30px; }
+.opsportal-margin-bottom { margin-bottom: 15px; }
+.opsportal-padding-top { padding-top: 15px; }
+.opsportal-padding-top-2x { padding-top: 30px; }
+.opsportal-padding-bottom { padding-bottom: 15px; }
+.opsportal-divider-top { border-top: 1px solid rgba(0, 0, 0, 0.1); padding-top: 15px; }
+.opsportal-divider-bottom { border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-bottom: 15px; }
+
+/* =Button Styles */
+.opsportal-btn { margin: 0 5px; opacity:.75;-webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out;}
+.opsportal-btn:hover, .hris-btn:focus { opacity: 1; }
+.opsportal-btn-dk { color: #fff; background-color: #444444; }
+.opsportal-btn-dk:hover, .opsportal-btn-dk:focus { color: #fff; }
+.opsportal-btn-lt { color: #333333; background-color: #f0f0f0; }
+.opsportal-btn-lt:hover, .opsportal-btn-lt:focus { color: #333; }
+
+/* popover styles */
+.po-buttons { margin-bottom: 15px; }
+
+/* =OpsPortal Styles */
+/*.opsportal-stage { position: relative; padding: 0; margin: 0; }
+.opsportal-stage-container { position: absolute; top: 0; left: 0; right: 0; width: 100%; background: #fff; margin: 0; padding: 0; overflow-y: auto; }
+.opsportal-stage-main { clear: right; } */

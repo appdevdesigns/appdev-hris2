@@ -3,6 +3,7 @@ steal(
         // List your Controller's dependencies here:
         'appdev',
         'OpsPortal/portal-scratch.css',
+		'OpsPortal/opsportal.css',
         'OpsPortal/controllers/MenuList.js',
         'OpsPortal/controllers/WorkArea.js',
         'OpsPortal/classes/OpsTool.js'
