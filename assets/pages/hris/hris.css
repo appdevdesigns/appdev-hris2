@@ -1,36 +1,37 @@
-.jumbotron {
-    border-radius: 6px 6px 6px 6px;
-    padding: 50px 60px;
-}
+.hris-item-table { border: 1px solid #cccccc; margin-top: 15px; }
+.hris-item-table th { background: #cccccc; padding: 15px !important; color: #fff; }
+.hris-item-table td { padding: 15px !important; }
 
-#jumbo {
-    background-color: #333333;
-    color: #EEEEEE;
-}
 
-.project-icon {
-    float: left;
-    margin-right: 10px;
-}
 
-.project-title {
-    font-size:24px;
-}
+/* =HRIS Object Widget */
+.hris-object-widget { padding-left: 15px; padding-right: 0; overflow: hidden; position: relative; top: 0; left: 0; }
+/*.hris-object-widget { padding-left: 15px; padding-right: 0; overflow: auto; position: absolute; top: 0; left: 0; bottom: 0; }*/
+#hris-object-widget { padding-bottom: 102px; }
 
-.proj:last-child {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    margin-bottom: 0;
-}
-.proj:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-}
-.proj {
- 
-    border: 1px solid #DDDDDD;
-    display: block;
-    margin-bottom: -1px;
-    padding: 10px 15px;
-    position: relative;
-}
+/* =HRIS Set Widget */
+.hris-set-attr-widget { padding: 0; }
+#hris-set-widget { background-color: #f6f6f6; }
+
+/* =HRIS Attribute Widget */
+#hris-attr-widget { border-top: 1px solid rgba(0, 0, 0, 0.1); background-color: #f6f6f6; }
+
+/* =HRIS Form Container */
+.hris-form-container { margin: 15px; }
+.hris-form-container input[type='text'], .hris-form-container textarea, .hris-form-container select { margin-top: 30px; }
+.hris-form-help { line-height: 34px; margin-top: 30px; }
+.hris-form-delete { margin-top: 6px; display: block; }
+.hris-item-icon-setting { width: 115px; height:115px; margin-top: 30px; position: relative; border: 1px solid #cccccc; }
+.hris-item-icon-setting i { display: block; margin: 15px auto; opacity: 0.5; color: #333; }
+.hris-item-icon-setting a { position: absolute; bottom: 0; left: 0; width: 100%; background-color: #333; color: #fff; text-align: center; font-variant: uppercase; padding: 5px 0; }
+.hris-item-icon-setting a:hover { text-decoration: none; }
+.hris-form-container textarea, .hris-form-container select { color: #999; opacity: 1; }
+.hris-form-container option { color: #000; }
+
+.hris-item-table input[type="text"], .hris-item-table select { margin-top: 0 !important; }
+
+/* =Icon list */
+.hris-add-icon { list-style: none; }
+.hris-add-icon > li { float: left; display: block; text-align: center; border: 1px solid #e0e0e0; padding: 15px; }
+.hris-add-icon > li:hover { background-color: #fff; }
+.hris-add-icon > li.active-icon { background-color: #fff; }

@@ -1,8 +1,4 @@
 
-div { position: relative; }
-
-.row { overflow: hidden; }
-
 /* =Portal App */
 .apd-portal-container-full { padding: 0; margin: 0; }
 .apd-portal-container { margin: 0; border-radius: 0; border: 0; overflow-x: hidden; }
