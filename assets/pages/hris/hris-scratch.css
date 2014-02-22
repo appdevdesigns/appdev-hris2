@@ -81,7 +81,7 @@
 
 .hris-stage { position: relative; padding: 0; margin: 0; }
 .hris-stage-container { position: absolute; top: 0; left: 0; right: 0; width: 100%; background: #fff; margin: 0; padding: 0; overflow-y: auto; }
-.hris-stage-main { clear: right; }
+.hris-stage-main { clear: right; margin-right: 15px; }
 
 .hris-nav-list { overflow: auto; position: relative; /*position: absolute; top: 85px; left: 0; right: 0; /*bottom: 0;*/ -webkit-overflow-scrolling: touch; }
 .hris-nav-list li { position: relative; display: block; padding: 0.75em 15px; cursor:pointer; margin: 0; }
@@ -90,7 +90,7 @@
 .hris-nav-list-item:hover .icons { display: block; }
 /*.hris-nav-list-item .icons { display: block; }*/
 
-.hris-widget-nav-sub { position: absolute; bottom: 0; left: 0; width: 100%; }
+.hris-widget-nav-sub, .hris-widget-bottom-btn { position: absolute; bottom: 0; left: 0; width: 100%; }
 .hris-toggle, .hris-modal { display: block; padding: 15px 0; margin: 0; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; width: 100%; }
 
 .hris-active { background-color: rgba(255, 255, 255, 0.65) !important; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.1); }

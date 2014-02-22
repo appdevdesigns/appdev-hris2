@@ -70,7 +70,7 @@ module.exports.opsportal = {
           icon:'fa-user',
           key:'profile',
           label:'Profile',
-		  isDefault: false,
+		  isDefault: true,
           tools:[{
               // Hris User Profile Tool
               controller:'HrisUserProfile',
@@ -87,7 +87,7 @@ module.exports.opsportal = {
           icon:'fa-wrench',
           key:'hradmin',
           label:'HR Admin',
-          isDefault: true,
+          isDefault: false,
           tools:[
               {
                   // Hris Admin Objects
