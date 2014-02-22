@@ -70,7 +70,7 @@ module.exports.opsportal = {
           icon:'fa-user',
           key:'profile',
           label:'Profile',
-		  isDefault: true,
+          isDefault:false,
           tools:[{
               // Hris User Profile Tool
               controller:'HrisUserProfile',
@@ -87,7 +87,7 @@ module.exports.opsportal = {
           icon:'fa-wrench',
           key:'hradmin',
           label:'HR Admin',
-          isDefault: false,
+          isDefault: true,
           tools:[
               {
                   // Hris Admin Objects
@@ -102,10 +102,19 @@ module.exports.opsportal = {
           ]
       },
       {
-          icon:'fa-question',
-          key:'help',
-          label:'Help',
-          tools:[]
+          icon:'fa-cogs',
+          key:'opsleader',
+          label:'Ops Leader',
+          tools:[{
+              // GMA Matrix Entry tool
+              controller:'GMAMatrix',
+              label:'GMA Matrix',
+              isDefault: true,
+              permissions:[
+                  'gma.matrix'
+                  , 'developer'
+              ]
+          }]
       }
   ]
 };
