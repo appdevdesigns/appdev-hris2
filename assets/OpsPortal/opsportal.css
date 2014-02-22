@@ -15,6 +15,10 @@
 .modal-content { background-color: #f0f0f0; }
 .btn, .btn:hover, .btn:focus, a.btn, a.btn:hover, a.btn:visited { border-radius: 0 !important; color: #fff !important; border: 1px solid transparent !important;}
 
+.control-label { text-align: left !important; }
+
+.modal-dialog { width: 750px; }
+
 /* =General Global Styles */
 html, body { height: 100% !important; margin: 0; padding: 0; /*overflow: hidden; overflow-x: hidden; overflow-y: hidden; */}
 body { font-family: 'proxima-nova','Helvetica Neue',Helvetica,Arial,sans-serif; color: #333; }
@@ -22,11 +26,15 @@ a { color: #333333; text-decoration: none; opacity: 0.5; -webkit-transition:opac
 a:hover, a:visited { color: #333333; opacity: 1; outline: 0; border: 0;}
 div { position: relative; }
 
+.opsportal-col-centered { float: none !important; margin: 0 auto !important; }
+.opsportal-launch-box { margin: 30px auto; padding: 30px 15px; }
+
 /* =OpsPortal Margins, Padding, Dividers */
 .opsportal-nopadding { padding: 0 !important; }
 .opsportal-margin-top { margin-top: 15px; }
 .opsportal-margin-top-2x { margin-top: 30px; }
 .opsportal-margin-bottom { margin-bottom: 15px; }
+.opsportal-margin-bottom-2x { margin-bottom: 30px; }
 .opsportal-padding-top { padding-top: 15px; }
 .opsportal-padding-top-2x { padding-top: 30px; }
 .opsportal-padding-bottom { padding-bottom: 15px; }

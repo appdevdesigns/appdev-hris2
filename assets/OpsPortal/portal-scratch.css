@@ -1,3 +1,7 @@
+/* =Global */
+.opsportal-stage-title { float: left; width: 33%; font-size: 1.5rem; line-height: 50px; margin: 0; padding: 0; }
+.opsportal-content-block { position: relative; border: 1px solid rgba(0, 0, 0, 0.1); background-color: #f0f0f0; margin-top: 3rem; }
+.opsportal-content-block-title { width: 50%; float: left; text-transform: uppercase;  }
 
 /* =Portal App */
 .apd-portal-container-full { padding: 0; margin: 0; }
@@ -9,7 +13,8 @@
 
 /*.apd-portal-fill { min-height: 100%; height: 100%; }*/
 
-.icons, .apd-portal-widget-button-icon {position:absolute;top:9px;right:0;margin-top:-10px;}
+/*.icons, .apd-portal-widget-button-icon {position:absolute;top:9px;right:0;margin-top:-10px;}*/
+.icons, .apd-portal-widget-button-icon {position:absolute;top:48%;right:0;margin-top:-10px;}
 .apd-portal-widget-button-icon {top:8px;right:0;margin-top:-10px; }
 .icons { display: none; }
 .icons .icon, .apd-portal-widget-button-icon .icon {position:relative;top:0;left:0;display:inline-block;opacity:.5;-webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out; }
