@@ -33,7 +33,9 @@ function(){
 
             // once the strategies are loaded then update our data();
             AD.comm.hub.subscribe('gmamatrix.strategies.loaded',function(key, data) {
-                self.data(data.strategies);
+                AD.sal.setImmediate( function() {
+                    self.data(data.strategies);
+                });
             });
 
         },

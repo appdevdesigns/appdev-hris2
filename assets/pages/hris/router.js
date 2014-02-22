@@ -2,7 +2,8 @@ steal(
         // List your Page's dependencies here:
         'appdev/appdev.js'
 
-        , 'http://code.jquery.com/ui/1.10.1/jquery-ui.min.js'
+//        , 'http://code.jquery.com/ui/1.10.1/jquery-ui.min.js'
+        , 'js/jquery-ui.min.js'
 		, 'bootstrap/css/bootstrap.min.css'
 
         , 'pages/hris/hris.css'
@@ -15,14 +16,18 @@ steal(
 
 
 
-        , 'http://cdn.wijmo.com/jquery.wijmo-open.all.3.20133.20.min.js'
-        , 'http://cdn.wijmo.com/interop/bootstrap-wijmo.css'
+//        , 'http://cdn.wijmo.com/jquery.wijmo-open.all.3.20133.20.min.js'
+        , 'js/jquery.wijmo-open.all.3.20133.20.min.js'
+
+//        , 'http://cdn.wijmo.com/interop/bootstrap-wijmo.css'
+        , 'styles/bootstrap-wijmo.css'
 
 ).then(
 
         "appdev/widgets/ad_list_crud",
         "OpsPortal/setup.js",
-        "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+//        "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+        "styles/font-awesome.css"
 
 
 ).then(function(){
@@ -30,7 +35,7 @@ steal(
     // All dependencies loaded by now
     // Create your controllers here:
 
-    new AD.controllers.OpsPortal.OpsPortal('#portal')
+    new AD.controllers.OpsPortal.OpsPortal('#portal');
 
 
 

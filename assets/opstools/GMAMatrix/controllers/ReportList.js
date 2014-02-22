@@ -37,16 +37,20 @@ function(){
             AD.comm.hub.subscribe('gmamatrix.assignment.selected',
                 function (key, data) {
 
+                AD.sal.setImmediate( function() {
+
                     data.model.reports()
-                    .then(function(list){
-                        self.data(list);
-                    })
-                    .fail(function(err){
-                        console.error('Error retrieving reports from ');
-                        console.log(data.model);
-                    });
+                        .then(function(list){
+                            self.data(list);
+                        })
+                        .fail(function(err){
+                            console.error('Error retrieving reports from ');
+                            console.log(data.model);
+                        });
 
                 });
+
+            });
         },
 
 

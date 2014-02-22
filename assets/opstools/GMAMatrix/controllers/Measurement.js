@@ -16,17 +16,27 @@ function(){
 
         init: function (element, options) {
             var self = this;
-            this.options = AD.defaults({
+            options = AD.defaults({
                     templateDOM: 'opstools/GMAMatrix/views/Measurement/Measurement.ejs',
             }, options);
+            this.options = options;
 
             // Call parent init
-            this._super.apply(this, arguments);
+            AD.classes.UIController.apply(this, arguments);
 
+            this.subscriptions = [];
 
             this.dataSource = this.options.dataSource; // AD.models.Projects;
 
             this.initDOM();
+
+
+            var sid = AD.comm.hub.subscribe('gmamatrix.measurements.clear', function(key, data){
+                AD.sal.setImmediate( function() {
+                    self.remove();
+                });
+            });
+            this.subscriptions.push(sid);
 
 
         },
@@ -35,7 +45,28 @@ function(){
 
         initDOM: function () {
 
-            this.element.html(can.view(this.options.templateDOM, {} ));
+            this.element.html(can.view(this.options.templateDOM, {item:this.options.measurement } ));
+
+        },
+
+
+
+        remove: function() {
+
+
+
+            // if still attached to an element -> remove it.
+            if (this.element) {
+                this.element.remove();
+
+
+                // unsubscribe us from any of our subscriptions
+                for (var s=0; s<this.subscriptions.length; s++){
+                    AD.comm.hub.unsubscribe(this.subscriptions[s]);
+                }
+
+                this.subscriptions = [];
+            }
 
         },
 
