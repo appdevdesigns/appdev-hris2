@@ -7,7 +7,7 @@ if (typeof process != 'undefined') {
 
 
 var setup = function() {
-    if (sails) {
+    if (typeof sails != 'undefined') {
         AD = ADCore;
         async = require('async');
         console.log('GMA server setup...');

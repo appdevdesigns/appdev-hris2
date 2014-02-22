@@ -157,22 +157,82 @@ module.exports = {
               id:1,
               reportId:1,
               measurementId:1,
-              matrixLocation:'win-actions',
+              matrixLocation:'etmm', // these are the LMI.locationKeys
               order:1
           },
           {
               id:2,
               reportId:1,
               measurementId:2,
-              matrixLocation:'win-actions',
+              matrixLocation:'em',
               order:2
           },
           {
               id:3,
               reportId:1,
               measurementId:3,
-              matrixLocation:'win-fruits',
+              matrixLocation:'npb',
               order:1
+          }
+      ];
+
+      ADCore.comm.success(res, data);
+  }
+
+
+
+  // url:get  /gmamatrix/lmidefs
+  , lmidefs:function(req, res) {
+
+      var data = [
+          {
+              id:1,
+              name:'Exposing through mass means',
+              definition:'Number of people who have been exposed to the gospel through media as a result of local efforts (TV/Radio, Jesus Film, everstudent.com and GMO sites).',
+              summaryType:'total',
+              inputType:'integer',
+              chartLocation:'win-faith',
+              locationKey:'etmm'
+          },
+          {
+              id:2,
+              name:'Initiating Gospel Conversations',
+              definition:'Number of people with whom a gospel conversation was initiated, whether face to face or online ',
+              summaryType:'total',
+              inputType:'integer',
+              chartLocation:'win-faith',
+              locationKey:'igc'
+          },
+          {
+              id:3,
+              name:'Presenting the Gospel',
+              definition:'Number of people to whom the gospel was presented, whether face to face or online, with an opportunity to respond.',
+              summaryType:'total',
+              inputType:'integer',
+              chartLocation:'win-faith',
+              locationKey:'ptg'
+          },
+          {
+              id:4,
+              name:'New Professing Believers',
+              definition:'A: Number of people who have heard the gospel and have indicated a decision to follow Jesus through Mass Exposure.<br>B. Number of people who have heard the gospel and have indicated a decision to follow Jesus through a Gospel Presentation.',
+              summaryType:'total',
+              inputType:'integer',
+              chartLocation:'win-fruits',
+              locationKey:'npb'
+          },
+
+
+
+          //// Make sure there is the additional Extra category
+          {
+              id:25,
+              name:'Extra Measurements',
+              definition:'Additional measurements defined for this node that are not part of the LMI definitions.',
+              summaryType:'total',
+              inputType:'integer',
+              chartLocation:'extra-extra',
+              locationKey:'em'
           }
       ];
 

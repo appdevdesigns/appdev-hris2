@@ -85,6 +85,13 @@ function(){
 
 
 
+        description: function() {
+
+            return this.measurementDescription;
+        },
+
+
+
         getID: function(){
             return this.measurementId;
         },
@@ -93,13 +100,30 @@ function(){
 
         label: function() {
 
-            return this.name;
+            return this.measurementName;
+        },
+
+
+        lmiDefinition: function(lmi) {
+            this.lmiObj = lmi;
+        },
+
+
+        placement:function() {
+            return this.reportObj.placementForMeasurement(this);
         },
 
 
 
         setReport:function(report) {
             this.reportObj = report;
+        },
+
+
+
+        value: function() {
+
+            return this.measurementValue;
         }
 
 

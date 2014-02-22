@@ -134,6 +134,7 @@ function(){
         },
 
 
+
         measurementsWithoutPlacements:function(strategy) {
             var list = this.data.measurements[strategy];
             var listNotFound = [];
@@ -142,13 +143,19 @@ function(){
 
                 for(var i=0; i<list.length; i++) {
                     if (!this.data.placements[ list[i].getID() ]) {
-                        listNotfound.push(list[i]);
+                        listNotFound.push(list[i]);
                     }
                 }
             }
 
             return listNotFound;
 
+        },
+
+
+
+        placementForMeasurement: function(measurement) {
+            return this.data.placements[ measurement.getID() ];
         }
 
 
