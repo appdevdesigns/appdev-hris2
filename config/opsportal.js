@@ -102,10 +102,19 @@ module.exports.opsportal = {
           ]
       },
       {
-          icon:'fa-question',
-          key:'help',
-          label:'Help',
-          tools:[]
+          icon:'fa-cogs',
+          key:'opsleader',
+          label:'Ops Leader',
+          tools:[{
+              // GMA Matrix Entry tool
+              controller:'GMAMatrix',
+              label:'GMA Matrix',
+              isDefault: true,
+              permissions:[
+                  'gma.matrix'
+                  , 'developer'
+              ]
+          }]
       }
   ]
 };
