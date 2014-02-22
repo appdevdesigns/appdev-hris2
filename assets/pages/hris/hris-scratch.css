@@ -16,11 +16,11 @@
 
 .hris-filter-summary .filter-on { background: #333 !important; border-radius: 0 !important; color: #fff; opacity: 0.75; }
 
-#hris-user-summary ul { border-left: 1px solid rgba(0, 0, 0, 0.1); }
-#hris-user-summary ul li { position: relative; display: block; margin: 5px 0; padding: 5px 5px 5px 15px; border-left: 5px solid transparent; }
-#hris-user-summary ul li:hover { background: rgba(0,0,0,0.1); border-left: 5px solid rgba(0,0,0,0.1); }
-#hris-user-summary ul li .icons { display: none; }
-#hris-user-summary ul li:hover .icons { display: block; }
+#hris-user-overview-summary ul { border-left: 1px solid rgba(0, 0, 0, 0.1); }
+#hris-user-overview-summary ul li { position: relative; display: block; margin: 5px 0; padding: 5px 5px 5px 15px; border-left: 5px solid transparent; }
+#hris-user-overview-summary ul li:hover { background: rgba(0,0,0,0.1); border-left: 5px solid rgba(0,0,0,0.1); }
+#hris-user-overview-summary ul li .icons { display: none; }
+#hris-user-overview-summary ul li:hover .icons { display: block; }
 
 .hris-profile-table, .hris-profile-table-edit { position: relative; }	
 .hris-profile-table td.hris-profile-attr, .hris-profile-table-edit td.hris-profile-attr { font-weight: bold; border-right: 1px solid #cccccc; width: 40%; }
