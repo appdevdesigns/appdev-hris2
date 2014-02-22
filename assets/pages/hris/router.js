@@ -17,6 +17,8 @@ steal(
 
         , 'http://cdn.wijmo.com/jquery.wijmo-open.all.3.20133.20.min.js'
         , 'http://cdn.wijmo.com/interop/bootstrap-wijmo.css'
+		
+		, 'bootstrap/js/bootstrap-datepicker.js'
 
 ).then(
 
