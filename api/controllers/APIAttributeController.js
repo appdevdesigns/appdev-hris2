@@ -35,7 +35,7 @@ module.exports = {
         {
            id: 1,
            attributeset_id : 1,
-           attribute_label : "Given Name",
+           attribute_label : "First Name",
            attribute_question : "Enter the given name",
            attribute_column : "person_givenname",
            attribute_datatype : "text",
@@ -48,7 +48,7 @@ module.exports = {
         {
            id: 2,
            attributeset_id : 1,
-           attribute_label : "Family Name",
+           attribute_label : "Last Name",
            attribute_question : "Enter the family name",
            attribute_column : "person_surname",
            attribute_datatype : "text",

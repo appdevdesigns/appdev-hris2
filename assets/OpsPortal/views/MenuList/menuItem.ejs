@@ -1,7 +1,7 @@
 
 			<li>
 				<div class="apd-portal-nav-list-item"  area="<%= area.key %>" >
-					<span class="badge pull-right">8</span>
+					<% if (area.key != 'profile'){ %><span class="badge pull-right">8</span><% } %>
 					<span class="icon apd-portal-item-icon"><i class="fa fa-fw apd-portal-icon-fw  <%= area.icon %>"></i></span><%= area.label %>
 				</div>
 			</li>

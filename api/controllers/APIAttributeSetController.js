@@ -36,20 +36,7 @@ module.exports = {
            id: 1,
            type_id : 0,
            object_id:1,
-           attributeset_key : "Avatar",
-           attributeset_pkey : "person_id",
-           attributeset_table : "hris_person",
-           attributeset_relation : "one",
-           attributeset_uniqueKey : 0,
-           attributeset_icon : "fa-camera",
-           createdAt:"2013/12/01"
-        },
-
-        {
-           id: 2,
-           type_id : 0,
-           object_id:1,
-           attributeset_key : "Name",
+           attributeset_key : "Basic Information",
            attributeset_pkey : "person_id",
            attributeset_table : "hris_person",
            attributeset_relation : "one",
@@ -59,27 +46,40 @@ module.exports = {
         },
 
         {
-           id: 3,
+           id: 2,
            type_id : 0,
            object_id:1,
-           attributeset_key : "Phone",
+           attributeset_key : "Contact",
            attributeset_pkey : "person_id",
            attributeset_table : "hris_person",
            attributeset_relation : "one",
            attributeset_uniqueKey : 0,
-           attributeset_icon : "fa-phone",
+           attributeset_icon : "fa-envelope",
+           createdAt:"2013/12/01"
+        },
+
+        {
+           id: 3,
+           type_id : 0,
+           object_id:1,
+           attributeset_key : "Worker Information",
+           attributeset_pkey : "person_id",
+           attributeset_table : "hris_person",
+           attributeset_relation : "one",
+           attributeset_uniqueKey : 0,
+           attributeset_icon : "fa-clock-o",
            createdAt:"2013/12/01"
         },
         {
             id: 4,
             type_id : 0,
             object_id:1,
-            attributeset_key : "Email",
+            attributeset_key : "Language",
             attributeset_pkey : "person_id",
             attributeset_table : "hris_person",
             attributeset_relation : "one",
             attributeset_uniqueKey : 0,
-            attributeset_icon : "fa-envelope",
+            attributeset_icon : "fa-fire",
             createdAt:"2013/12/01"
          },
 
@@ -87,12 +87,12 @@ module.exports = {
              id: 5,
              type_id : 0,
              object_id:1,
-             attributeset_key : "Social Web",
+             attributeset_key : "Medical",
              attributeset_pkey : "person_id",
              attributeset_table : "hris_person",
              attributeset_relation : "one",
              attributeset_uniqueKey : 0,
-             attributeset_icon : "fa-link",
+             attributeset_icon : "fa-medkit",
              createdAt:"2013/12/01"
           },
 
@@ -100,28 +100,41 @@ module.exports = {
               id: 6,
               type_id : 0,
               object_id:1,
-              attributeset_key : "Address",
+              attributeset_key : "Legal",
               attributeset_pkey : "person_id",
               attributeset_table : "hris_person",
               attributeset_relation : "one",
               attributeset_uniqueKey : 0,
-              attributeset_icon : "fa-book",
+              attributeset_icon : "fa-legal",
               createdAt:"2013/12/01"
            },
 
-      ])
+           {
+               id: 7,
+               type_id : 0,
+               object_id:1,
+               attributeset_key : "Address",
+               attributeset_pkey : "person_id",
+               attributeset_table : "hris_person",
+               attributeset_relation : "one",
+               attributeset_uniqueKey : 0,
+               attributeset_icon : "fa-book",
+               createdAt:"2013/12/01"
+            },
+
+      ]);
   }
 
   , create:function(req, res) {
-      res.json({ status:'created' })
+      res.json({ status:'created' });
   }
 
   , update:function(req, res) {
-      res.json({status:'updated'})
+      res.json({status:'updated'});
   }
 
   , destroy:function(req, res) {
-      res.json({status:'destroyed'})
+      res.json({status:'destroyed'});
   }
 
 
