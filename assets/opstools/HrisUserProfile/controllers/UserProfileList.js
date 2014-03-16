@@ -49,7 +49,7 @@ function(){
 			var self = this,
 				myType = self.element.find($el).data('hris-attr');
 			
-			$('#hris-stage-user .hris-stage-main').hide();
+			$('#hris-stage-user .opsportal-stage-main').hide();
 			$('#' + myType).show();
 			
 			$('#hris-user-profile-list .genlist-item').hasClass('genlist-active') ? $('#hris-user-profile-list .genlist-item').removeClass("genlist-active genlist-active-object") : "";

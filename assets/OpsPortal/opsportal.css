@@ -1,4 +1,5 @@
 /* =Bootstrap Overrides */
+.opsportal-stage-container .row { margin-right: 0 !important; margin-left: 0 !important; }
 .row { overflow: hidden; }
 
 .form-horizontal .form-group { margin-right: 0; margin-left: 0; }
@@ -26,8 +27,13 @@ a { color: #333333; text-decoration: none; opacity: 0.5; -webkit-transition:opac
 a:hover, a:visited { color: #333333; opacity: 1; outline: 0; border: 0;}
 div { position: relative; }
 
+.gb { background-color: #f7f7f7; }
+
 .opsportal-col-centered { float: none !important; margin: 0 auto !important; }
 .opsportal-launch-box { margin: 30px auto; padding: 30px 15px; }
+
+/* =OpsPortal Colors */
+.opsportal-widget { background-color: #f6f6f6; }
 
 /* =OpsPortal Margins, Padding, Dividers */
 .opsportal-nopadding { padding: 0 !important; }
@@ -53,6 +59,9 @@ div { position: relative; }
 .po-buttons { margin-bottom: 15px; }
 
 /* =OpsPortal Styles */
-/*.opsportal-stage { position: relative; padding: 0; margin: 0; }
+.opsportal-stage { position: relative; padding: 0; margin: 0; }
 .opsportal-stage-container { position: absolute; top: 0; left: 0; right: 0; width: 100%; background: #fff; margin: 0; padding: 0; overflow-y: auto; }
-.opsportal-stage-main { clear: right; } */
+.opsportal-stage-main { clear: right; }
+
+/* =OpsPortal Widgets */
+.opsportal-widget-container { border-right: 1px solid rgba(0, 0, 0, 0.1); background-color: #f0f0f0; }

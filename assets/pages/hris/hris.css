@@ -2,20 +2,16 @@
 .hris-item-table th { background: #cccccc; padding: 15px !important; color: #fff; }
 .hris-item-table td { padding: 15px !important; }
 
-
-
-
 /* =HRIS Object Widget =HRIS User Widget */
 .hris-object-widget, .hris-user-widget { padding-left: 15px; padding-right: 0; overflow: hidden; position: relative; top: 0; left: 0; }
-/*.hris-object-widget { padding-left: 15px; padding-right: 0; overflow: auto; position: absolute; top: 0; left: 0; bottom: 0; }*/
 #hris-object-widget, #hris-user-widget { padding-bottom: 102px; }
 
 /* =HRIS Set Widget */
 .hris-set-attr-widget, .hris-user-profile-widget { padding: 0; }
-#hris-set-widget { background-color: #f6f6f6; }
+/*#hris-set-widget { background-color: #f6f6f6; }*/
 
 /* =HRIS Attribute Widget */
-#hris-attr-widget { border-top: 1px solid rgba(0, 0, 0, 0.1); background-color: #f6f6f6; }
+#hris-attr-widget { border-top: 1px solid rgba(0, 0, 0, 0.1); /*background-color: #f6f6f6; */ }
 
 /* =HRIS Form Container */
 .hris-form-container { margin: 15px; }
