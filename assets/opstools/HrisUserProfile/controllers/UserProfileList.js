@@ -24,13 +24,13 @@ function(){
                 self.element.css("height", data.height + "px");
 
                 // the height of our list should be the height of our portal - height of our bottom buttons
-				var buttonHeight = self.element.find(".hris-widget-nav-sub").outerHeight(true);
+				var buttonHeight = self.element.find(".opsportal-widget-nav-sub").outerHeight(true);
 				//self.list.resize(data.height - buttonHeight);
 				self.element.find('.genlist-widget-inner').css("height", data.height+'px');
 
-			    var mastheadHeight = self.element.find(".hris-widget-masthead").outerHeight(true);
+			    var mastheadHeight = self.element.find(".opsportal-widget-masthead").outerHeight(true);
 
-				self.element.find('.hris-nav-list').css("height", (data.height -mastheadHeight -5 -15) + "px");
+				self.element.find('.opsportal-nav-list').css("height", (data.height -mastheadHeight -5 -15) + "px");
 
 				// now we apply a padding to our widget container so that the list drops below the masthead
 				self.element.find(".genlist-widget-inner")

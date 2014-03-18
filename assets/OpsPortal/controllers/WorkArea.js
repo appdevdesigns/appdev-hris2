@@ -42,7 +42,7 @@ function(){
         createArea: function(area) {
 
             // add a new tool area div
-            var areaKey = 'apd-portal-area-'+area.key;
+            var areaKey = 'opsportal-area-'+area.key;
             var data = {
                 key: areaKey
             }
