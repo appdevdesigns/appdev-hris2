@@ -74,7 +74,7 @@ function(){
         createTool: function(tool) {
 
             // add a new tool area div
-            var divKey = 'apd-portal-area-tool-'+tool.controller;
+            var divKey = 'opsportal-area-tool-'+tool.controller;
             var data = {
                 key: divKey
             }

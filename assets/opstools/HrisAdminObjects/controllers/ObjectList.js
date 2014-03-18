@@ -40,7 +40,7 @@ function(){
 
                 // the height of our list should be the height of our portal - height of our bottom buttons
 
-				var buttonHeight = self.element.find(".hris-widget-nav-sub").outerHeight(true);
+				var buttonHeight = self.element.find(".opsportal-widget-nav-sub").outerHeight(true);
 				self.list.resize(data.height - buttonHeight);
 
 //				self.element.find(".hris-widget-inner").css("padding-top", (mastheadHeight+5) + "px");

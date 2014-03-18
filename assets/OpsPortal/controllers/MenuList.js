@@ -41,7 +41,7 @@ function(){
         createArea: function( area) {
             console.log(area);
 
-            this.element.find('.apd-portal-nav-list > ul')
+            this.element.find('.opsportal-nav-list > ul')
                 .append(can.view(this.options.templateItem, {area:area}));
 
         },
@@ -77,7 +77,7 @@ function(){
             ev.preventDefault();
         },
 
-        '.apd-portal-nav-list-item click' : function($el, ev) {
+        '.opsportal-nav-list-item click' : function($el, ev) {
 
             var area = $el.attr('area');
             AD.comm.hub.publish('opsportal.area.show', {area:area});

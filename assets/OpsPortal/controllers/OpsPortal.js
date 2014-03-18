@@ -73,17 +73,17 @@ function(){
 
             this.element.html(can.view(this.options.templateDOM, {} ));
 
-            this.menu = new AD.controllers.OpsPortal.MenuList(this.element.find('.apd-portal-menu-widget'));
-            this.workArea = new AD.controllers.OpsPortal.WorkArea(this.element.find('.apd-portal-content'));
+            this.menu = new AD.controllers.OpsPortal.MenuList(this.element.find('.opsportal-menu-widget'));
+            this.workArea = new AD.controllers.OpsPortal.WorkArea(this.element.find('.opsportal-content'));
 
-            this.element.find('.apd-portal-menu-trigger').sidr({name:'apd-portal-menu-widget',side:'left'});
+            this.element.find('.opsportal-menu-trigger').sidr({name:'opsportal-menu-widget',side:'left'});
         },
 
 
 
         resize: function() {
 
-            var newHeight = $(window).height()  - this.element.find(".apd-portal-container-masthead").outerHeight(true);
+            var newHeight = $(window).height()  - this.element.find(".opsportal-container-masthead").outerHeight(true);
 
             // notify of a resize action.
             // -1px to ensure sub tools don't cause page scrolling.

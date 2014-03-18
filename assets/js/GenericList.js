@@ -93,11 +93,11 @@ function(){
 
 		    this.element.find('.genlist-widget-inner').css("height", height+'px');
 
-		    var mastheadHeight = this.element.find(".hris-widget-masthead").outerHeight(true);
+		    var mastheadHeight = this.element.find(".opsportal-widget-masthead").outerHeight(true);
 			
 			// what is the point of subtracting 15? Adds a gap above the bottom button...removing it for now.
 			//this.element.find('.hris-nav-list').css("height", (height -mastheadHeight -5 -15) + "px");
-			this.element.find('.hris-nav-list').css("height", (height -mastheadHeight -5) + "px");
+			this.element.find('.opsportal-nav-list').css("height", (height -mastheadHeight -5) + "px");
 
 			// now we apply a padding to our widget container so that the list drops below the masthead
 			this.element.find(".genlist-widget-inner")
