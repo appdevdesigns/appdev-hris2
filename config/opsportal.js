@@ -87,7 +87,7 @@ module.exports.opsportal = {
           icon:'fa-wrench',
           key:'hradmin',
           label:'HR Admin',
-          isDefault: true,
+          isDefault: false,
           tools:[
               {
                   // Hris Admin Objects
@@ -100,6 +100,24 @@ module.exports.opsportal = {
                   ]
               }
           ]
+      },
+      {
+          // Balance Report Tool
+          icon:'fa-user',
+          key:'balancereporttool',
+          label:'Balance Report Tool',
+          isDefault:true,
+          tools:[{
+              // Balance Report Tool
+              controller:'BalanceReportTool',
+              label:'Balance Report Tool',
+              isDefault: true,
+              permissions:[
+                  //'hris.profile'
+                  //, 'developer'
+				'developer'
+              ]
+          }]
       },
       {
           icon:'fa-cogs',
