@@ -1,0 +1,4 @@
+#balrep-type-list { float: none; text-align: center; margin: 0 auto; }
+#balrep-type-list > li { float: none; display: inline; }
+#balrep-type-list
+#balrep-type-list > li > a { display: inline-block; }

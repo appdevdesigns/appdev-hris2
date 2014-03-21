@@ -8,6 +8,9 @@ steal(
 
         , 'pages/hris/hris.css'
 		, 'pages/hris/hris-scratch.css'
+		
+		, 'pages/hris/balancereport.css'
+		, 'pages/hris/balancereport-scratch.css'
 
 
 ).then(
