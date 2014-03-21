@@ -32,10 +32,11 @@ function(){
 
             this.initDOM();
 
-			new AD.controllers.opstools.BalanceReportTool.BalanceReportType(this.element.find('.tool-balance-report-type'), {});
+			//new AD.controllers.opstools.BalanceReportTool.BalanceReportType(this.element.find('.tool-balance-report-type'), {});
 			//new AD.controllers.opstools.BalanceReportTool.BalanceReportUpload(this.element.find('.tool-balance-report-upload'), {});
-			//new AD.controllers.opstools.BalanceReportTool.BalanceReportReview(this.element.find('.tool-balance-report-review'), {});
+			new AD.controllers.opstools.BalanceReportTool.BalanceReportReview(this.element.find('.tool-balance-report-review'), {});
 			//new AD.controllers.opstools.BalanceReportTool.BalanceReportSend(this.element.find('.tool-balance-report-send'), {});
+			//new AD.controllers.opstools.BalanceReportTool.BalanceReportSendNational(this.element.find('.tool-balance-report-send-national'), {});
 
 /*			this.element.find('.tt').tooltip(options);
 			this.element.find('.tt-field').tooltip({placement: 'left'});
