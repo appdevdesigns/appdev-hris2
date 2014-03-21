@@ -29,11 +29,29 @@ function(){
 
         },
 
+		nextStep: function(argStep) {
+
+            //AD.comm.hub.publish('hris.form.object.new', {});
+
+        },
+
         initDOM: function() {
             var self = this;
 
             // insert our base DOM with the Column contents: objectlist, and bottom elements
             this.element.html(can.view(this.options.templateDOM, {} ));
+        },
+
+		'#staff-us click': function($el, ev) {
+            console.log('US Staff selected!');
+			self.nextStep('upload');
+            ev.preventDefault();
+        },
+
+		'#staff-national click': function($el, ev) {			
+            console.log('National Staff selected!');
+			self.nextStep('review');
+            ev.preventDefault();
         }
     });
 

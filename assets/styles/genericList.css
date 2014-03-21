@@ -32,3 +32,4 @@
 .gen-btn-list ul { float: right; border-left: 0 !important; }
 .gen-btn-list ul li { margin: 0; padding: 0; }
 .gen-btn-list ul li:hover { background: transparent; border: 0; }
+.gen-btn-list .active-btn, .gen-btn-list .active-btn a { opacity: 1; }
