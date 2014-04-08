@@ -132,9 +132,10 @@
 			</div>
 			<div class="col-md-9">
 				<div class="form-group opsportal-margin-top-2x">
-				    <div class="col-md-11">
-						<select name="selectbasic" class="form-control tt-field">
-							<option value="">Parent Object</option>
+				    <label class="col-md-4 control-label" for="textinput">Parent Object</label>
+					<div class="col-md-6">
+						<select name="selectbasic" class="form-control">
+							<option value="0"></option>
 							<option value="1">Object 1</option>
 							<option value="2">Object 2</option>
 					    </select>
@@ -143,9 +144,10 @@
 				</div>
 				
 				<div class="form-group opsportal-margin-top-2x">
-				    <div class="col-md-11">
-						<select name="selectbasic" class="form-control tt-field">
-							<option value="">Parent Attribute Set</option>
+				    <label class="col-md-4 control-label" for="textinput">Parent Attribute Set</label>
+					<div class="col-md-6">
+						<select name="selectbasic" class="form-control">
+							<option value="0"></option>
 							<option value="1">AS 1</option>
 							<option value="2">AS 2</option>
 					    </select>
@@ -155,39 +157,45 @@
 			</div>
 		</div>
 		<div class="row opsportal-margin-top-2x opsportal-padding-top opsportal-divider-top">
-			<div class="col-md-11"><input name="textinput" type="text" placeholder="Attribute Name" class="form-control input-md tt-field"></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Attribute Name</label>  
+			<div class="col-md-8"><input name="textinput" type="text" placeholder="Attribute Name" class="form-control input-md" title="Attribute Name"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top-2x">
-			<div class="col-md-11"><textarea class="form-control tt-field" id="textarea" name="textarea">Attribute Description</textarea></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Attribute Description</label>  
+			<div class="col-md-8"><input name="textinput" type="text" placeholder="Attribute Description" class="form-control input-md" title="Attribute Description"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top-2x">
-			<div class="col-md-11"><input name="textinput" type="text" placeholder="Column" class="form-control input-md tt-field"></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Column</label>  
+			<div class="col-md-8"><input name="textinput" type="text" placeholder="Column" class="form-control input-md" title="Column"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top-2x">
-			<div class="col-md-11">
-			<select name="selectbasic" class="form-control tt-field">
-				<option value="0">Data Type</option>
-				<option value="1">Text</option>
-				<option value="2">Option two</option>
-		    </select></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Data Type</label>  
+			<div class="col-md-8">
+				<select name="selectbasic" class="form-control tt-field">
+					<option value="0"></option>
+					<option value="1">Text</option>
+					<option value="2">Option two</option>
+			    </select>
+			</div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top-2x">
-			<div class="col-md-11"><input name="textinput" type="text" placeholder="Permission" class="form-control input-md tt-field"></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Permission</label>  
+			<div class="col-md-8"><input name="textinput" type="text" placeholder="Permission" class="form-control input-md" title="Permission"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top">
-			<div class="col-md-12">
-				<label class="checkbox-inline" for="checkboxes-0"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"> Unique Key</label>
-			</div>
+			<label class="col-md-3 control-label" for="checkboxes-0">Unique Key</label>  
+			<div class="col-md-8"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1" class="opsportal-checkbox"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="form-group opsportal-margin-top opsportal-padding-top opsportal-divider-top">

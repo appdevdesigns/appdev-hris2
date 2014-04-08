@@ -132,9 +132,10 @@
 			</div>
 			<div class="col-md-9">
 				<div class="form-group opsportal-margin-top-2x">
-				    <div class="col-md-11">
+				    <label class="col-md-4 control-label" for="textinput">Parent Object</label>
+					<div class="col-md-6">
 						<select name="selectbasic" class="form-control">
-							<option value="">Parent Object</option>
+							<option value="0"></option>
 							<option value="1">Object 1</option>
 							<option value="2">Object 2</option>
 					    </select>
@@ -144,39 +145,45 @@
 			</div>
 		</div>
 		<div class="row opsportal-margin-top-2x opsportal-padding-top opsportal-divider-top">
-			<div class="col-md-11"><input name="textinput" type="text" placeholder="Attribute Set Name" class="form-control input-md tt-field"></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Attribute Set Name</label>  
+			<div class="col-md-8"><input name="textinput" type="text" placeholder="Attribute Set Name" class="form-control input-md" title="Attribute Set Name"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top-2x">
-			<div class="col-md-11"><textarea class="form-control tt-field" id="textarea" name="textarea">Attribute Set Description</textarea></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Attribute Set Description</label>  
+			<div class="col-md-8"><input name="textinput" type="text" placeholder="Attribute Set Description" class="form-control input-md" title="Attribute Set Description"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top-2x">
-			<div class="col-md-11"><input name="textinput" type="text" placeholder="Key" class="form-control input-md tt-field"></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Key</label>  
+			<div class="col-md-8"><input name="textinput" type="text" placeholder="Key" class="form-control input-md" title="Key"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top-2x">
-			<div class="col-md-11"><input name="textinput" type="text" placeholder="Type" class="form-control input-md tt-field"></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Type</label>
+			<div class="col-md-8"><input name="textinput" type="text" placeholder="Type" class="form-control input-md" title="Type"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top-2x">
-			<div class="col-md-11">
-			<select name="selectbasic" class="form-control tt-field">
-				<option value="0">Relationship</option>
-				<option value="1">Option 1</option>
-				<option value="2">Option 2</option>
-		    </select></div>
-			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" title="Help" class="po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
+			<label class="col-md-3 control-label" for="textinput">Relationship</label>  
+			<div class="col-md-8">
+				<select name="selectbasic" class="form-control">
+					<option value="0"></option>
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+			    </select>
+			</div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="row opsportal-margin-top">
-			<div class="col-md-12">
-				<label class="checkbox-inline" for="checkboxes-0"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"> Unique Key</label>
-			</div>
+			<label class="col-md-3 control-label" for="checkboxes-0">Unique Key</label>
+			<div class="col-md-8"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1" class="opsportal-checkbox"></div>
+			<div class="col-md-1 opsportal-nopadding hris-form-help"><a href="#" class="some-class po-help" data-content="Lorem ipsum dolor sit. Lorem ipsum dolor sit. Lorem ipsum dolor sit" data-placement="right" data-trigger="hover"><i class="fa fa-question-circle fa-lg"></i></a></div>
 		</div>
 		
 		<div class="form-group opsportal-margin-top opsportal-padding-top opsportal-divider-top">
